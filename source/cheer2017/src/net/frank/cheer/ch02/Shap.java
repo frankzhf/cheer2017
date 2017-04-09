@@ -1,25 +1,8 @@
 package net.frank.cheer.ch02;
 
 public class Shap {
-
 	public static void main(String[] args) {
-		
 		int width = 5;
-		
-		/**
-		 * 
-		     *                      4
-		    * *                    3 5
-		   *   *
-		  *     *
-		 *       *
-		  *     *
-		   *   *
-		    * *
-		     *	    		 
-		 * 
-		 * 
-		 */
 		char space = ' ' ;
 		int start =0;
 		int end = 0;
@@ -53,5 +36,22 @@ public class Shap {
 			}
 			System.out.print('\n');
 		}
+		
+
+		/**
+		 * 
+		     *                      4
+		    * *                    3 5
+		   *   *
+		  *     *
+		 *       *
+		  *     *
+		   *   *
+		    * *
+		     *	    		 
+		 * 
+		 * 
+		 */
+		
 	}
 }
