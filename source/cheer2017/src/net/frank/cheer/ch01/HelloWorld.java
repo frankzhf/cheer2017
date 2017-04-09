@@ -1,5 +1,6 @@
 package net.frank.cheer.ch01;
 
+// if not below java.lang, it need to import
 import java.util.Date;
 
 public class HelloWorld{
@@ -20,5 +21,4 @@ public class HelloWorld{
 	public static double calendS(int r){
 		return PI * (r*r);
 	}
-	
 }
