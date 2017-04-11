@@ -1,4 +1,4 @@
-package net.frank.cheer.ch01;
+package net.frank.cheer.demo.ch01;
 
 public class JvmLoop{
 	public static void main(String[] args){

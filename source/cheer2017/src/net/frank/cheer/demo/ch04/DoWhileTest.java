@@ -1,4 +1,4 @@
-package net.frank.cheer.ch02;
+package net.frank.cheer.demo.ch04;
 
 public class DoWhileTest {
 	public static void main(String[] args){

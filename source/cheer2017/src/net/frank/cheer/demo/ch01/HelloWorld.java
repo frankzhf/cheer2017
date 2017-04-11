@@ -1,4 +1,4 @@
-package net.frank.cheer.ch01;
+package net.frank.cheer.demo.ch01;
 
 // if not below java.lang, it need to import
 import java.util.Date;

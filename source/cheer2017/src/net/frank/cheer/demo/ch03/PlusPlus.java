@@ -1,4 +1,4 @@
-package net.frank.cheer.ch02;
+package net.frank.cheer.demo.ch03;
 
 public class PlusPlus {
 
