@@ -1,8 +1,15 @@
 package net.frank.cheer.demo.ch04;
 
+import java.util.Scanner;
+
 public class Shap {
-	public static void main(String[] args) {
-		int width = 5;
+	public static void main(String[] args) throws Exception {
+		System.out.println("请输入菱形的边长：");
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		int width = scanner.nextInt();
+		
 		char space = ' ' ;
 		int start =0;
 		int end = 0;
@@ -35,17 +42,19 @@ public class Shap {
 				
 			}
 			System.out.print('\n');
+			
+			scanner.close();
 		}
 		
 
 		/**
-		 * 
-		     *                      4
-		    * *                    3 5
-		   *   *
-		  *     *
-		 *       *
-		  *     *
+		 *                    0123456789
+		     *                    4
+		    * *                  3 5
+		   *   *                2   6
+		  *     *              1     7
+		 *       *            0       8 
+		  *     *	           1     7
 		   *   *
 		    * *
 		     *	    		 
