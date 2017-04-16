@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class OOPDemo {
 	
 	
-	
-	
 	public static void main(String[] args) {
 		String name = "guocheng";
 		int age = 28;
@@ -52,6 +50,9 @@ public class OOPDemo {
 		}
 		***/
 		Teacher tt = new Teacher();
+		tt.setName("frank");
+		tt.setAge(37);
+		tt.setBirthday(new Date());
 		//tt.age = 22;
 		//tt.name = "frank";
 		//tt.birthday = new Date();
@@ -59,10 +60,20 @@ public class OOPDemo {
 		tt.work();
 		
 		Student ss = new Student();
-		//ss.age = 11;
-		//ss.name = "wuyang";
-		//ss.birthday = new Date();
+		ss.setName("liujian");
+		ss.setAge(29);
+		ss.setBirthday(new Date());
+		
+		
 		ss.study();
+		
+		{
+			String value ="aa";
+			System.out.println(value);
+			value = "bbb";
+		}
+		//System.out.println(value);
+		
 		
 	}
 
@@ -72,21 +83,41 @@ abstract class  Person{
 	private String name;
 	private int age;
 	private Date birthday;
-	
-	public void setName(String name){
-		this.name = name;
-	}
-	
-	public String getName(){
+	public String getName() {
 		return name;
 	}
-	
-	public void setAge(int age){
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
 		this.age = age;
 	}
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
 	
-	public int getAge(){
-		return age;
+	@Override
+	public String toString(){
+		return printPerson();
+	}
+	
+	private String printPerson(){
+		StringBuilder sb = new StringBuilder();
+		aaa();
+		sb.append("name =" ).append(name).append("\n") 
+			.append("age =").append(age).append("\n")
+			.append("birthday =").append(birthday).append("\n");
+		return sb.toString();
+	}
+	
+	private void aaa(){
+		aaa();
 	}
 	
 	
@@ -98,7 +129,6 @@ abstract class  Person{
 class Teacher extends Person{
 	
 	void work(){
-		
 	}
 	
 }
@@ -106,7 +136,22 @@ class Teacher extends Person{
 
 class Student extends Person {
 	
-	String no;
+	private String no;
+	
+	
+	
+	public String getNo() {
+		return no;
+	}
+
+
+
+	public void setNo(String no) {
+		this.no = no;
+	}
+
+
+
 	void study(){
 		
 	}
