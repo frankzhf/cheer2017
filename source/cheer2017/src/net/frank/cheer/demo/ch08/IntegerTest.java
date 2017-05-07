@@ -7,7 +7,6 @@ public class IntegerTest {
 		int i=10;
 		int j=10;
 		Integer.compare(i, j);
-		
 		Integer _i= new Integer(10);
 		 _i.compareTo(new Integer(10));
 		

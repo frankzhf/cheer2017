@@ -38,8 +38,8 @@ public class CompareTest {
 		values[3] = 78;
 		values[4] = 82;
 		values[5] = 52;
+		int max=Integer.MIN_VALUE;
 		
-		int max=-1;
 		for(int value:values){
 			if(value > max){
 				max = value;

@@ -18,7 +18,7 @@ public class EquailsExcludeTest {
 		if(i == j){
 			System.out.println("i == j");
 		}
-		
+		Number number = new Integer(1);
 		
 	}
 	
