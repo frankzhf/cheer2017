@@ -4,24 +4,33 @@ public class CompareTest {
 
 	public static void main(String[] args) {
 		/***
+		int a = 10;
+		int b = 20;
+		int c = 30;
+		int d,e,f;
 		
-		int a= 10;
-		int b= 20;
-		int c= 30;
-		int d= 40;
 		
-		if (a >b ){
-			if(a>c){
-				
+		
+		
+		if(a >= b){
+			if(a>=c){
+				System.out.println("max is a");
+			}else{
+				System.out.println("max is c");
 			}
+			
+			
 		}else{
-			if(b>c){
-				
+			if(b>=c){
+				System.out.println("max is b");
+			}else{
+				System.out.println("max is c");
 			}
 		}
+		
 		***/
 		
-		
+		/***
 		int [] values = new int[6];
 		values[0] = 8;
 		values[1] = 39;
@@ -29,7 +38,7 @@ public class CompareTest {
 		values[3] = 78;
 		values[4] = 82;
 		values[5] = 52;
-		/***
+		
 		int max=-1;
 		for(int value:values){
 			if(value > max){
@@ -37,8 +46,8 @@ public class CompareTest {
 			}
 		}
 		System.out.println(max);
-		*/
-		
+		***/
+		/***
 		int max = -1;
 		int maxIndex = -1;
 		for(int i =0;i<values.length;i++){
@@ -51,7 +60,29 @@ public class CompareTest {
 		int temp = values[values.length-1];
 		values[values.length-1] = max;
 		values[maxIndex] = temp;
-	
+		***/
+		
+		int a = 10;
+		int b = 20;
+		
+		System.out.println("a:"+a);
+		System.out.println("b:"+b);
+		
+		/**
+		int tmp = -1;
+		tmp = a;
+		a = b;
+		b = tmp;
+		System.out.println("a:"+a);
+		System.out.println("b:"+b);
+		***/
+		
+		a = a+b;
+		b = a-b;
+		a = a-b;
+		
+		System.out.println("a:"+a);
+		System.out.println("b:"+b);
 		
 	}
 

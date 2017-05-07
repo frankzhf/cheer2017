@@ -3,7 +3,7 @@ package net.frank.cheer.demo.ch06;
 public class SelectSort {
 	public static void main(String[] args){
 		int [] arr = {6,3,8,2,9,1};
-		System.out.println("æ’åºå‰");
+		System.out.println("ÅÅĞòÇ°");
 		printArray(arr);
 		int index;
 		for(int i=1;i<arr.length;i++){
@@ -18,7 +18,7 @@ public class SelectSort {
 			arr[index] = temp;
 			printArray(arr);
 		}
-		System.out.println("æ’åºå‰");
+		System.out.println("ÅÅĞòÇ°");
 		printArray(arr);
 	}
 	

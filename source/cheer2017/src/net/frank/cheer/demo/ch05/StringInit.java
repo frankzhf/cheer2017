@@ -24,6 +24,13 @@ public class StringInit {
 			System.out.println("str != str1");
 		}
 		
+		if(str.equals(str1)){
+			System.out.println("str equals str1");
+		}else{
+			System.out.println("str not equals str1");
+		}
+		
+		
 		char [] chars = new char[3];
 		chars[0] = 'a';
 		chars[1] = 'b';
@@ -33,10 +40,11 @@ public class StringInit {
 		String bbb = new String(chars,0,2);
 		String ccc = new String(aaa);
 		
-		
-		
-		
-		
-	}
+		String value = "abcabcabc";
+		//[abc]{3}
+		//[abc]+
+		//[abc]*
+		//[abc]?
+	}	
 
 }
