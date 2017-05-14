@@ -2,10 +2,14 @@ package net.frank.cheer.demo.ch12;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 public class MyExceptionTest{
-	public static void main(String[] args)throws MyException {
-		
-		System.out.println("Please enter your age:");
+	
+	private static Logger logger = Logger.getLogger(MyExceptionTest.class);
+	
+	public static void main(String[] args) throws Exception{
+		logger.info("Please enter your age:");
 		Scanner scanner = null;
 		try{
 			scanner = new Scanner(System.in);
@@ -15,6 +19,7 @@ public class MyExceptionTest{
 					break;
 				}
 				if(age < 1 || age > 120 ){
+					logger.error("Age should be >= 0 and <=120");
 					throw new MyException();
 				}
 			}
