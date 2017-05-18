@@ -12,6 +12,4 @@ public class PackageTest {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		//df.parse("2017-05-14");
 	}
-	
-	
 }
