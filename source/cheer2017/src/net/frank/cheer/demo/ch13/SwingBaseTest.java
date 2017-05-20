@@ -18,13 +18,13 @@ public class SwingBaseTest extends JFrame {
 		setSize(300,200);
 		setTitle("My JFrame");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
+		
 		//new MyJDailog(this);
-		JLabel welcome = new JLabel("Hello, Swing, Wclcome");
-		JLabel icon = new JLabel(new MyIcon());
-		//add(welcome);
-		add(icon);
-		pack();
+		JLabel welcome = new JLabel("Hello, Swing, Wclcome",new MyIcon(),JLabel.CENTER);
+		
+		add(welcome);
+		//add(icon);
+		setVisible(true);
 	}
 	
 	
