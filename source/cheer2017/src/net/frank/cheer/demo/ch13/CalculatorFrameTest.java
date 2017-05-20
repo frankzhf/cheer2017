@@ -10,13 +10,23 @@ import javax.swing.JTextField;
 
 public class CalculatorFrameTest extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4912935871528242629L;
+
 	public CalculatorFrameTest(){
 		setTitle("Calculator");
 		setSize(400,250);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		JTextField showField = new JTextField("0");
-		showField.setAlignmentX(RIGHT_ALIGNMENT);
+		showField.setHorizontalAlignment(JTextField.RIGHT);
+		
+		showField.setText("1000");
+		
+		System.out.println(showField.getText());
+		
 		add(showField,BorderLayout.CENTER);
 		
 		JPanel center = new JPanel();
