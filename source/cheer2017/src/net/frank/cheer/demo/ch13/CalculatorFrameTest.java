@@ -2,6 +2,8 @@ package net.frank.cheer.demo.ch13;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -49,6 +51,16 @@ public class CalculatorFrameTest extends JFrame {
 			center.add(button);
 			if("".equals(buttonLabel[i])){
 				button.setEnabled(false);
+			}else{
+				button.addActionListener(new ActionListener(){
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						JButton _me = (JButton)e.getSource();
+						System.out.println(_me.getText());
+					}
+					
+				});
 			}
 			
 			
