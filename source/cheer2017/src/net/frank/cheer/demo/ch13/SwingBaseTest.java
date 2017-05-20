@@ -54,7 +54,6 @@ class MyIcon implements Icon{
 	@Override
 	public void paintIcon(Component c, Graphics g, int x, int y) {
 		g.drawOval(0, 0, 25, 25);
-		
 	}
 
 	@Override
