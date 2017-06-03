@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,6 +22,10 @@ public class ReaderWriterTest {
 
 class TextEditorFrame extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7631706371370278724L;
 	private static File editorFile = new File("E:/zhaofeng/test/editor.txt");
 	
 	public TextEditorFrame(){
@@ -65,7 +70,23 @@ class TextEditorFrame extends JFrame{
 		writerButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Writer clicked");
+				FileWriter writer = null;
+				try{
+					writer = new FileWriter(editorFile);
+					String text = content.getText();
+					writer.write(text);
+					writer.flush();
+				}catch(Exception ee){
+					
+				}finally{
+					try{
+						if(writer!=null){
+							writer.close();
+						}
+					}catch(Exception eee){
+						
+					}
+				}
 			}
 		});
 		
