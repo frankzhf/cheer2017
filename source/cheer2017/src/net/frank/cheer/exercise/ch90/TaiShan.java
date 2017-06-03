@@ -10,7 +10,9 @@ import net.frank.cheer.exercise.ch90.define.Processor;
 import net.frank.cheer.exercise.ch90.define.Request;
 import net.frank.cheer.exercise.ch90.define.Response;
 import net.frank.cheer.exercise.ch90.entity.Student;
+import net.frank.cheer.exercise.ch90.request.AddRequest;
 import net.frank.cheer.exercise.ch90.request.ViewRequest;
+import net.frank.cheer.exercise.ch90.response.AddResponse;
 import net.frank.cheer.exercise.ch90.response.ViewResponse;
 
 public class TaiShan {
@@ -29,18 +31,17 @@ public class TaiShan {
 			new Request(){
 				@Override
 				public boolean input() {
-					
 					return true;
 				}
 			},
 			new Response(){
 				@Override
-				public void render() {
+				public void render(Request request) {
 					System.out.println("在这里你可以输入以下命令");
 					System.out.println("V - 查看学生信息");
 					System.out.println("A - 增加一个学生信息");
-					System.out.println("O - 导出学生信息");
-					System.out.println("I - 导入学生信息");
+					//System.out.println("O - 导出学生信息");
+					//System.out.println("I - 导入学生信息");
 					System.out.println("E - 退出系统");
 					while(scanner.hasNextLine()){
 						String command = scanner.nextLine();
@@ -48,19 +49,10 @@ public class TaiShan {
 						if(_p!=null){
 							_p.handle();
 						}else{
-							System.out.println("命令不存在！按回车回退到主菜单");
-							try{
-								cleanConsole();
-							}catch(Exception e){
-								e.printStackTrace();
-							}
-							while(scanner.hasNextLine()){
-								Processor _m = commandMap.get(DEFAULT_COMMAND);
-								_m.handle();
-								return;
-							}
-							
-							
+							System.out.println("命令不存在！退到主菜单");
+							Processor _m = commandMap.get(DEFAULT_COMMAND);
+							_m.handle();
+							return;
 						}
 					}
 					
@@ -77,10 +69,8 @@ public class TaiShan {
 	public static void init(){
 		Processor v = new Processor(new ViewRequest(),new ViewResponse());
 		commandMap.put("V", v);
-	}
-	
-	public static void cleanConsole() throws Exception{
-		Runtime.getRuntime().exec("clear"); 
+		Processor a = new Processor(new AddRequest(),new AddResponse());
+		commandMap.put("A", a);
 	}
 
 }

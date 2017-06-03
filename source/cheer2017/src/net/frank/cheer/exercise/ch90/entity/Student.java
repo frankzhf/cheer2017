@@ -1,10 +1,13 @@
 package net.frank.cheer.exercise.ch90.entity;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Student implements Serializable {
 	
+	public static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
 	/**
 	 * 
@@ -14,8 +17,8 @@ public class Student implements Serializable {
 	private String name;
 	private String sex;
 	private Date birthday;
-	private short leight;
-	private short weight;
+	private String height;
+	private String weight;
 	public String getId() {
 		return id;
 	}
@@ -40,20 +43,29 @@ public class Student implements Serializable {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-	public short getLeight() {
-		return leight;
+	public String getHeight() {
+		return height;
 	}
-	public void setLeight(short leight) {
-		this.leight = leight;
+	public void setHeight(String height) {
+		this.height = height;
 	}
-	public short getWeight() {
+	public String getWeight() {
 		return weight;
 	}
-	public void setWeight(short weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
 	
-	
+	public String toString(){
+		StringBuilder sb = new StringBuilder(1024);
+		sb.append(getId()).append("\t").
+			append(getName()).append("\t").
+			append(getSex()).append("\t").
+			append(df.format(getBirthday())).append("\t").
+			append(getHeight()).append("\t").
+			append(getWeight());
+		return sb.toString();
+	}
 	
 	
 }

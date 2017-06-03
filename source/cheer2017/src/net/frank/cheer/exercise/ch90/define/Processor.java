@@ -16,19 +16,9 @@ public class Processor {
 	
 	public void handle(){
 		if(request.input()){
-			response.render();
+			response.render(request);
 		}else{
-			System.out.println("按回车返回主菜单！");
-			while(TaiShan.scanner.hasNextLine()){
-				try{
-					TaiShan.cleanConsole();
-				}catch(Exception e){
-					
-				}
-				TaiShan.commandMap.get(TaiShan.DEFAULT_COMMAND).handle();
-				return;
-			}
-			
+			TaiShan.commandMap.get(TaiShan.DEFAULT_COMMAND).handle();
 		}
 	}
 }
