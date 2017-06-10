@@ -103,7 +103,6 @@ class ThreadControllerFrame extends JFrame{
 			}
 		});
 		
-		
 		startButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
