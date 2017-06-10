@@ -46,9 +46,9 @@ public class TaiShan {
 					System.out.println("在这里你可以输入以下命令");
 					System.out.println("V - 查看学生信息");
 					System.out.println("A - 增加一个学生信息");
-					System.out.println("O - 导出学生信息");
+					System.out.println("E - 导出学生信息");
 					System.out.println("I - 导入学生信息");
-					System.out.println("E - 退出系统");
+					System.out.println("X - 退出系统");
 					while(scanner.hasNextLine()){
 						String command = scanner.nextLine();
 						Processor _p = commandMap.get(command.toUpperCase());
