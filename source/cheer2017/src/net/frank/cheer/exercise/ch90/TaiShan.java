@@ -46,8 +46,8 @@ public class TaiShan {
 					System.out.println("在这里你可以输入以下命令");
 					System.out.println("V - 查看学生信息");
 					System.out.println("A - 增加一个学生信息");
-					//System.out.println("O - 导出学生信息");
-					//System.out.println("I - 导入学生信息");
+					System.out.println("O - 导出学生信息");
+					System.out.println("I - 导入学生信息");
 					System.out.println("E - 退出系统");
 					while(scanner.hasNextLine()){
 						String command = scanner.nextLine();
@@ -77,12 +77,12 @@ public class TaiShan {
 		commandMap.put("V", v);
 		Processor a = new Processor(new AddRequest(),new AddResponse());
 		commandMap.put("A", a);
-		Processor e = new Processor(new ExitRequest(),new ExitResponse());
+		Processor e = new Processor(new ExportRequest(),new ExportResponse());
 		commandMap.put("E", e);
-		Processor x = new Processor(new ExportRequest(),new ExportResponse());
-		commandMap.put("x", x);
 		Processor i = new Processor(new ImportRequest(),new ImportResponse());
-		commandMap.put("i", i);
+		commandMap.put("I", i);
+		Processor x = new Processor(new ExitRequest(),new ExitResponse());
+		commandMap.put("X", x);
 	}
 
 }

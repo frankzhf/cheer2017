@@ -11,8 +11,8 @@ public class ExitResponse implements Response {
 
 	@Override
 	public void render(Request request) {
-		// TODO Auto-generated method stub
-
+		System.out.println("谢谢使用！");
+		System.exit(0);
 	}
 
 }

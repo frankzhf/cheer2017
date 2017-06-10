@@ -6,7 +6,7 @@ public class ExitRequest implements Request {
 
 	@Override
 	public boolean input() {
-		return false;
+		return true;
 	}
 
 }
