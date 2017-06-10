@@ -6,25 +6,19 @@ import java.awt.Graphics;
 import java.util.Random;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class ThreadSleepTest {
 	public static void main(String[] args){
 		EventQueue.invokeLater(new Runnable(){
-
 			@Override
 			public void run() {
-				JFrame f = new ThreadSleepFrame();
-				
+				new ThreadSleepFrame();
 			}
-			
 		});
 	}
 }
 
 class ThreadSleepFrame extends JFrame{
-	
 	/**
 	 * 
 	 */
