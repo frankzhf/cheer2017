@@ -11,8 +11,14 @@ import net.frank.cheer.exercise.ch90.define.Request;
 import net.frank.cheer.exercise.ch90.define.Response;
 import net.frank.cheer.exercise.ch90.entity.Student;
 import net.frank.cheer.exercise.ch90.request.AddRequest;
+import net.frank.cheer.exercise.ch90.request.ExitRequest;
+import net.frank.cheer.exercise.ch90.request.ExportRequest;
+import net.frank.cheer.exercise.ch90.request.ImportRequest;
 import net.frank.cheer.exercise.ch90.request.ViewRequest;
 import net.frank.cheer.exercise.ch90.response.AddResponse;
+import net.frank.cheer.exercise.ch90.response.ExitResponse;
+import net.frank.cheer.exercise.ch90.response.ExportResponse;
+import net.frank.cheer.exercise.ch90.response.ImportResponse;
 import net.frank.cheer.exercise.ch90.response.ViewResponse;
 
 public class TaiShan {
@@ -71,6 +77,12 @@ public class TaiShan {
 		commandMap.put("V", v);
 		Processor a = new Processor(new AddRequest(),new AddResponse());
 		commandMap.put("A", a);
+		Processor e = new Processor(new ExitRequest(),new ExitResponse());
+		commandMap.put("E", e);
+		Processor x = new Processor(new ExportRequest(),new ExportResponse());
+		commandMap.put("x", x);
+		Processor i = new Processor(new ImportRequest(),new ImportResponse());
+		commandMap.put("i", i);
 	}
 
 }
