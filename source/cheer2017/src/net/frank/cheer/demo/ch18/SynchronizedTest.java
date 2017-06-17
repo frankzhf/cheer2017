@@ -3,9 +3,9 @@ package net.frank.cheer.demo.ch18;
 public class SynchronizedTest {
 	
 	public static void main(String[] args){
-		Account zhangsan = new Account();
+		final Account zhangsan = new Account();
 		for(int i=0;i<10;i++){
-			int payValue = 4000;
+			final int payValue = 4000;
 			Thread trade = new Thread(new Runnable(){
 				@Override
 				public void run() {
