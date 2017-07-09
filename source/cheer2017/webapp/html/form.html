@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Form</title>
+		
+	</head>
+	<body>
+		<h1>Form</h1>
+		<form action="http://news.163.com" method="get" target="_self">
+			文本框<input type="text" value="1111" > <br>
+			密码框<input type="password" value="222" ><br>
+			文件选择框<input type="file" value="" ><br>
+			单选框<input type="radio" name="sex" value="0" checked >男<input type="radio" name="sex" value="1" >女<br>
+			多选框<input type="checkbox" name="fav" value="0" >足球<input type="checkbox" name="fav" value="1" >篮球
+			<input type="checkbox" name="fav" value="2" >排球<input type="checkbox" name="fav" value="3" >游泳<br>
+			
+			下拉列表框
+			<select multiple>
+				<option>ASP</option>
+				<option>CGI</option>
+				<option>ASP.NET</option>
+				<option>JAVA WEB</option>
+			</select>
+			
+			<textarea>
+			</textarea>
+			
+			<a href="http://news.163.com" target="">
+			<img src="http://imgsize.ph.126.net/?imgurl=http://img1.126.net/channel8/028711_300400_0708new.jpg_300x400x1x85.jpg">
+			</a>
+			
+			<br>
+			<input type="submit" value="提交">
+			<input type="reset" value="重置">
+			<input type="button" value="doSomething" onclick="alert('doSomething click')">
+			
+			<input type="image" name="id" value="11111">
+		</form>
+		
+		<!-- about method
+			http://localhost:80080/prototype?loginName=zhangsan&pwd=1111111  GET
+			http://localhost:80080/prototype?loginName=zhangsan
+			
+		-->
+		<!-- about target
+			_self       
+			_parent
+			_blank
+			_top
+			
+			
+			<iframe src="iframeTest.html"></iframe>
+		-->
+		
+		
+		
+		
+	</body>
+</html>
