@@ -25,7 +25,7 @@ public class HttpServer {
 		ServerSocket serverSocket = null;
 		try{
 			serverSocket = new ServerSocket(8000,100,
-					InetAddress.getByName("192.168.0.104"));
+					InetAddress.getByName("localhost"));
 		}catch(IOException e){
 			e.printStackTrace();
 			System.exit(1);

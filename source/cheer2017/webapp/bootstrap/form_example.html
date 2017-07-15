@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Bootstrap基本规律-以按钮为例</title>
+
+	<link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.6/css/bootstrap.css">
+	<!--[if lt IE 9]
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>	
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script src="resources/jquery-1.11.1/jquery.js"></script>
+	<script src="resources/bootstrap-3.3.6/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				常用
+			</div>
+			<div class="col-md-9">
+				<form>
+					<fieldset>用户登录</fieldset>
+					<div class="form-group">
+						<label>帐号</label>
+						<input type="text" class="form-control" 
+							placeholder="请输入你的用户名">
+					</div>
+					<div class="form-group">
+						<label>密码</label>
+						<input type="password" class="form-control" 
+							placeholder="请输入你的密码">
+					</div>
+					
+				</form>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-3">
+				内联
+			</div>
+			<div class="col-md-9">
+				<form class="form-inline">
+					<div class="form-group">
+						<label>帐号</label>
+						<input type="text" class="form-control" 
+							placeholder="请输入你的用户名">
+					</div>
+					<div class="form-group">
+						<label>密码</label>
+						<input type="password" class="form-control" 
+							placeholder="请输入你的密码">
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-3">
+				horizontal
+			</div>
+			<div class="col-md-9">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label">帐号</label>
+						<input type="text" class="form-control" 
+							placeholder="请输入你的用户名">
+					</div>
+					<div class="form-group">
+						<label class="control-label">密码</label>
+						<input type="password" class="form-control" 
+							placeholder="请输入你的密码">
+					</div>
+				</form>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

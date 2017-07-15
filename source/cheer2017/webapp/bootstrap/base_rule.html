@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Bootstrap基本规律-以按钮为例</title>
+
+	<link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.6/css/bootstrap.css">
+	<!--[if lt IE 9]
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>	
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script src="resources/jquery-1.11.1/jquery.js"></script>
+	<script src="resources/bootstrap-3.3.6/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn">确定</button> 基础样式
+			</div>
+			<div class="col-md-9">
+				.btn
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-primary">确定</button> 颜色样式
+			</div>
+			<div class="col-md-9">
+				.btn .btn-primary|.btn-warning|.btn-info
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-lg">确定</button> 尺寸样式
+			</div>
+			<div class="col-md-9">
+		</div>
+				.btn .btn-ns|.btn-sm|.btn-md|.btn-lg
+			</div>
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn disabled" >确定</button> 状态样式
+			</div>
+			<div class="col-md-9">
+				.btn .disabled|.active
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">我的书籍
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="#">JavaScript 编程精解</a></li>
+						<li><a href="#">JavaScript 设计模式</a></li>
+						<li><a href="#">JavaScript 启示录</a></li>
+						<li class="divider"></li>
+						<li><a href="#">深入理解Bootstrap3</a></li>
+					</ul>
+				</div>
+				复杂样式
+			</div> 
+			<div class="col-md-9">
+				这个需要自己实践
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<ul class="pagination">
+					<li class="disabled"><a href="#">&laquo;</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
+			<div class="col-md-9">
+				这个需要自己实践
+			</div>
+		</div>
+	</div>
+</body>
+</html>

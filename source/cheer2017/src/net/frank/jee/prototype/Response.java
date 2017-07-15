@@ -26,11 +26,10 @@ public class Response {
 		FileInputStream fis = null;
 		try{
 			File file = new File(HttpServer.WEB_ROOT,request.getUri());
+			String fileType = request.getUri().substring(request.getUri().lastIndexOf(".")+1);
 			if(file.exists()){
-				
-				
 				String responseHeader = "HTTP/1.1 200 \r\n" +
-						"Content-Type: text/html\r\n" +
+						"Content-Type: text/"+fileType+"\r\n" +
 						"Content-Length: "+file.length()+"\r\n" +
 						"\r\n";
 				output.write(responseHeader.getBytes());
