@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+	<title>
+		Object Example
+	</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	var student = new Object();
+	student.name = "frank";
+	student.age = 38;
+	student.sayInfo=function(){
+		alert("My name is " + this.name +"\n I am " + this.age);
+	}
+	student.sayInfo();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>number</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var n= 10;
+		var n2= 10.0;
+		if(n== n2){
+			console.log("n==n2");
+		}else{
+			console.log("n!=n2");
+		}
+		var _max = Number.MAX_VALUE;
+		var _min = Number.MIN_VALUE;
+		console.log(_max);
+		console.log(_min);
+		console.log(Infinity);
+		console.log(-Infinity);
+		console.log(isFinite(_max));
+		console.log(isFinite(_min));
+		console.log(isFinite(Infinity));
+		console.log(isFinite(-Infinity));
+		var abc = 'abc';
+		console.log(isNaN(abc));
+		console.log(isNaN(n));
+		console.log(isNaN(n2));
+		var  aa = "aa";
+		var ab = 6;
+		console.log(aa+ab); //"aa6"
+		aa = "11110";
+		console.log(aa+ab); //"111106"
+		console.log(parseInt(aa)+ab); //11116
+
+	</script>
+</body>
+</html>

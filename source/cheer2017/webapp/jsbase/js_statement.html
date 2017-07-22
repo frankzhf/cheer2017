@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var date = new Date();
+	var t = date.getTime()%3;
+	if(t == 0)
+		alert("aaa");
+	else if(t == 1)
+		alert("bbb");
+	else
+		alert("ccc");
+
+	var value = 1;
+	var sum = 0;
+	do{
+		sum += value;
+		value ++;
+	}while(value <101);
+
+	console.log("do-while result [sum] ->" + sum);
+
+	value = 1;
+	sum = 0;
+	while(value<=100){
+		sum += value;
+		value ++;
+	}
+	console.log("while result [sum] ->" + sum);
+
+	sum = 0;
+	for(var i = 1;i<=100;i++){
+		sum += i;
+	}
+	console.log("for result [sum] ->" + sum);
+
+	sum =0;
+	var values = [];
+	values.push(1);
+	values.push(2);
+	values.push(3);
+	values.push(4);
+	values.push(5);
+	values.push(6);
+	values.push(7);
+	values.push(8);
+	values.push(9);
+	values.push(10);
+	
+	for( var value in values){
+		sum += parseInt(value);
+		console.log("Current[sum] ->" + sum);
+	}
+	console.log("for in result [sum] ->" + sum);
+
+
+	for(var i=0;i<100;i++){
+		if(i >= 50){
+			continue;
+		}
+		sum += i;
+	}
+	console.log("continue result [sum] ->" + sum);
+
+	for(var i=0;i<100;i++){
+		if(i < 50){
+			continue;
+		}
+		sum += i;
+		if(i >89){
+			break;
+		}
+	}
+	console.log("break result [sum] ->" + sum);
+
+	var examLevel = 'B';
+
+	switch(examLevel){
+		case 'A':
+			alert("Well done!");
+		break;
+		case 'B':
+			alert("Good Luck!")
+		break;
+		case 'C':
+			alert("Hurry up!")
+		break;
+		default:
+			alert("Failure!")
+	}
+
+
+
+</script>
+</body>
+</html>
