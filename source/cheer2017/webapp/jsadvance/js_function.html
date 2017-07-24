@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	function test(value0,value1){
+		if(!value0){
+			value0 = 0;
+		}
+		if(!value1){
+			value1 = 0;
+		}
+		return value0+ value1;
+	}
+	/***
+	function test(){
+		return test(0,0);
+	}
+
+	function test(value){
+		return test(value,0);
+	}
+	****/
+	var result = test(10,20);
+	console.log(result);
+	result = test();
+	console.log(result);
+	result = test(10);
+	console.log(result);
+
+
+	function test2(){
+		//console.log(arguments);
+		var value0 = arguments[0];
+		if(!value0){
+			value0=0;
+		}
+
+		var value1 = arguments[1];
+		if(!value1){
+			value1=0;
+		}
+		return value0+value1;
+
+	}
+
+
+	result = test2(1,2,3,5);
+	console.log(result);
+
+
+	result = test2();
+	console.log(result);
+
+	result = test2(22);
+	console.log(result);
+
+
+</script>
+
+</body>
+</html>

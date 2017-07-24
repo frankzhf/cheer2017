@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	for( var prop in window){
+		console.log(prop + ":" + window[prop]);
+	}
+	console.log("==================================================");
+	var color = "red";
+
+	var panel = new Object();
+	panel.color = "blue";
+
+
+	function displayColorInfo(obj){
+		alert(obj.color)
+	}
+	for( var prop in window){
+		console.log(prop + ":" + window[prop]);
+	}
+	console.log("==================================================");
+
+	displayColorInfo(panel);
+	displayColorInfo(window);
+</script>
+
+</body>
+</html>

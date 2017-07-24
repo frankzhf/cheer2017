@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+function topMethod(){
+	console.log("topMehtod called.");
+	function inner(){
+		console.log("inner called.");
+	}
+	inner();
+}
+
+topMethod();
+try{
+	inner();
+}catch(e){
+	console.log(e);
+}
+</script>
+</body>
+</html>

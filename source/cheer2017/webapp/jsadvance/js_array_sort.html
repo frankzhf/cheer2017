@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	var array=[1,2,3,4,5];
+	var sortArray = array.reverse();
+	console.log(sortArray);
+
+
+	var studentArray = new Array();
+
+	var student0 = new Object();
+	student0.name = "zhangsan";
+	student0.age = 21;
+	studentArray.push(student0);
+
+	var student1 = new Object();
+	student1.name = "lisi";
+	student1.age = 20;
+	studentArray.push(student1);
+
+	var student2 = new Object();
+	student2.name = "wangwu";
+	student2.age = 22;
+	studentArray.push(student2);
+
+	var student3 = new Object();
+	student3.name = "zhaoliu";
+	student3.age = 24;
+	studentArray.push(student3);
+
+	var student4 = new Object();
+	student4.name = "tianqi";
+	student4.age = 19;
+	studentArray.push(student4);
+
+	console.log(studentArray);
+
+	sortArray = studentArray.sort(function(obj1,obj2){
+		if(obj1.name > obj2.name){
+			return 1;
+		}else if(obj1.name < obj2.name){
+			return -1;
+		}else{
+			if(obj1.age > obj2.age){
+				return 1;
+			}else if(obj1.age < obj2.age){
+				return -1;
+			}
+			return 0;
+		}
+	});
+	console.log(sortArray);
+	function compare(obj1,obj2){
+		
+	}
+	/***
+	function sort0(array){
+		
+		for (var i=0;i<array.length;i++){
+			var max = array[i];
+			for(var j=0;j<array.length-i){
+				var obj2 = array[j];
+				var rt = ompare(max,obj2); c  //importment
+				max = obj2;		
+			}
+
+
+
+		}
+	}
+	***/
+
+	var array9 = [1,3,5,7];
+	var array8 = [2,4,6,8];
+	console.log("array9 -> " + array9);
+	console.log("array8 -> " + array8);
+	
+	var array5 = array9.concat(array8);
+	console.log("array5 -> " + array5);
+
+	var array4 = array5.slice(2,6);
+	console.log("array4 -> " + array4);
+
+	var ele = array5[1];
+	console.log("ele -> " + ele);
+	ele = array5.indexOf(5);
+	console.log("ele -> " + ele);
+	ele = array5.lastIndexOf(7);
+	console.log("ele -> " + ele);
+	
+
+
+</script>
+
+</body>
+</html>

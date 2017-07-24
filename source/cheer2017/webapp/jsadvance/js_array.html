@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	var array = new Array();
+	array[0] = 1;
+	array[1] = 2;
+	array[2] = 3;
+	array[3] = 4;
+	array[4] = 5;
+	array[5] = 6;
+	array[6] = 7;
+	array[7] = 8;
+
+	console.log(array.length);
+
+	var array2 = [1,2,3,4,5,6,7,8,9,10];
+	console.log(array2.length);
+	array2[100] = 100;
+	console.log(array2.length);
+
+
+	var array3 = new Array();
+
+	array3["name"] = "zhangsan";
+	array3["age"] = 19;
+	array3["courses"] = [];
+
+	array3["courses"][0] = "chinese";
+	array3["courses"][1] = "math";
+		
+	console.log(array3.length);
+
+	console.log(array3['name']);
+
+
+	var student = new Object();
+ 	console.log(Array.isArray(student));
+
+ 	console.log(Array.isArray(array));
+ 	console.log(Array.isArray(array2));
+ 	console.log(Array.isArray(array3));
+
+ 	console.log(student instanceof Array);
+
+
+ 	console.log(array instanceof Array);
+ 	console.log(array2 instanceof Array);
+ 	console.log(array3 instanceof Array);
+ 	
+
+
+ 	
+
+
+
+
+</script>
+</body>
+</html>

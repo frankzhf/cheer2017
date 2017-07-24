@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var aaa = "aaa";
+	var bbb = aaa;
+	console.log(aaa);
+	console.log(bbb);
+	bbb = "bbb";
+	console.log(aaa);
+	console.log(bbb);
+
+/****
+1)
+aaa      "aaa"
+
+2)
+aaa      "aaa"
+bbb      "aaa"
+
+3)
+aaa      "aaa"
+bbb      "bbb"
+********/
+	var student = new Object();
+	student.name = "zhangsan";
+	var student2 = student;
+
+	console.log(student.name);
+	console.log(student2.name);
+	
+	student2.name = "lisi";
+
+	console.log(student.name);
+	console.log(student2.name);
+/******
+1)
+0000001            {name : "zhangsan"}
+
+student      ->    	0000001
+student2     ->		0000001
+
+2)
+
+0000001            {name : "lisi"}
+
+student      ->    	0000001
+student2     ->		0000001
+
+
+
+*********/
+
+</script>
+</body>
+</html>

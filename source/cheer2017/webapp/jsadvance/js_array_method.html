@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+var array = new Array();
+array[0] = "abc";
+array[1] = "bcd";
+array[2] = "efg";
+array[3] = "hij";
+
+console.log(array.toString());
+console.log(array.valueOf());
+console.log(array.join("|"));
+console.log(array.join("@@"));
+
+var array0 = new Array();
+
+array0.push("abc");
+console.log(array0.join(","));
+array0.push("bcd");
+console.log(array0.join(","));
+
+
+var value = array0.pop();
+console.log(value);
+console.log(array0.join(","));
+
+
+var array1= new Array();
+array1.push("abc");
+console.log(array1.join(","));
+array1.push("bcd");
+console.log(array1.join(","));
+
+value = array1.shift();
+console.log(value);
+console.log(array1.join(","));
+
+
+
+</script>
+</body>
+</html>

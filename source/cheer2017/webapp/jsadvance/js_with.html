@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>f
+</head>
+<body>
+
+<script type="text/javascript">
+/***
+http|https://www.baidu.com
+ftp://ftp.frank.net
+file:///Users/zhaofeng/Desktop/js_with.html
+***/
+/***
+window.location.href;
+
+****/
+	href  // window.href undined
+	with(location){
+		href // window.location.href
+	}
+
+	function generateUrl(){
+		var parameters = "?foo=p";
+
+		console.log(location);
+		for(var prop in location){
+			console.log(prop +":" + location[prop]);
+		}
+		var url = "";
+		with(location){
+			url = href + parameters;
+			console.log(protocol);
+		}
+		console.log(location.protocol);
+		//var url = location.href + parameters;
+		return url;
+		//with(location)
+
+
+		/***
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+		document.getElementById("#userId");
+
+
+		with(document){
+			getElementById("#userId");
+			getElementById("#userId");
+			getElementById("#userId");
+			getElementById("#userId");
+			getElementById("#userId");
+			getElementById("#userId");
+			getElementById("#userId");
+			getElementById("#userId");
+			getElementById("#userId");
+
+		}
+		
+		var parentNode = new Object();
+		parentNode.abc = new Object();
+		parentNode.abc.bcd = new Obje
+		***/
+
+	}
+
+	var result = generateUrl();
+	console.log(result);
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+	var student = new Object();
+
+	for(var prop in student){
+		console.log(prop +":" + student[prop]);
+	}
+
+	student.name = "zhangsan";
+	student.age = 19;
+
+	for(var prop in student){
+		console.log(prop +":" + student[prop]);
+	}
+
+	var studentName = 111;
+	studentName.aaa = 19;
+
+	/****
+	var person;
+	person.name="zhangsan";
+	***/
+	for(var prop in studentName){
+		console.log(prop +":" + studentName[prop]);
+	}
+	
+
+</script>
+
+
+</body>
+</html>
