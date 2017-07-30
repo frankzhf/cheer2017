@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//原型模式
+function Person(){}
+
+Person.prototype.name="zhangsan"
+Person.prototype.age = 19;
+Person.prototype.job = "Software Engineer";
+Person.prototype.sayName = function(){
+	alert(this.name);
+}
+
+var person1 = new Person();
+var person2 = new Person();
+//以上获取的实例与原型中的值是一样的
+person1.sayName();
+person2.sayName();
+console.log(person1.sayName == person2.sayName);
+person2.name = "lisi"
+person1.sayName();
+person2.sayName();
+console.log(person1.sayName == person2.sayName);
+</script>
+
+</body>
+</html>

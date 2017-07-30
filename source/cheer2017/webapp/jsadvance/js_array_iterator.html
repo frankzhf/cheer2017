@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var funArray = new Array();
+
+	funArray.push(function(){
+		return false;
+	});
+	funArray.push(function(){
+		return true;
+	});
+	funArray.push(function(){
+		return false;
+	});
+	funArray.push(function(){
+		return false;
+	});
+	funArray.push(function(){
+		return false;
+	});
+	var rt = funArray.every(function(item,index,array){
+		return item();
+	});
+	console.log(rt);
+
+
+	var array2 =  [1,10,100,500];
+	console.log(array2);
+	
+	var array3 = array2.filter(function(item,index){
+		if(item >=10){
+			return true;
+		}else{
+			return false;
+		}
+	});
+	console.log(array3);
+
+	for(var i=0;i<array2.length;i++){
+		console.log(array2[i]);
+	}
+
+	array2.forEach(function(item,index){
+		console.log(item);
+	});
+
+
+	rt = funArray.some(function(item,index,array){
+		console.log(item);
+		console.log(index);
+		return item();
+	});
+	console.log(rt);
+
+
+
+</script>
+</body>
+</html>

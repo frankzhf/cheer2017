@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//稳妥构造函数
+function Person(name,age,job){
+	var o = new Object();
+	o.sayName = function(){
+		alert(name);
+	}
+	o.setName=function(_name){
+		name = _name;
+	}
+	return o;
+}
+var zhangsan = new Person("zhangsan",19,"Software Enginner");
+zhangsan.sayName();
+zhangsan.setName("lisi");
+zhangsan.sayName();
+</script>
+
+</body>
+</html>

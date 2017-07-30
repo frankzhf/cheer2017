@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//构造模式
+function Person(name,age,job){
+	this.name = name;
+	this.age = age;
+	this.job = job;
+	this.sayName = function(){
+		alert(this.name);
+	}
+}
+var person1 = new Person("zhangsan",19,"Software Engineer");
+var person2 = new Person("lisi",22,"Doctor");
+
+person1.sayName();
+person2.sayName();
+
+/***
+相比工厂模式
+1)没有显式地创造对象
+2)直接将属性和方法赋给this对象
+3)没有return语句
+但必需使用new操作符来调用
+ */
+</script>
+
+</body>
+</html>

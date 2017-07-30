@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//寄生构造函数
+function Person(name,age,job){
+	var o = new Object();
+	o.name = name;
+	o.age = age;
+	o.job = job;
+	o.sayName = function(){
+		alert(this.name);
+	}
+	return o;
+}
+var zhangsan = new Person("zhangsan",19,"Software Enginner");
+zhangsan.sayName();
+
+function SpecialArray(){
+	var values = new Array();
+	values.push.apply(values,arguments);
+	values.toPipedString = function(){
+		return this.join("|");
+	}
+	return values;
+}
+
+var colors = new SpecialArray("red","blue","green");
+console.log(colors.toPipedString());
+</script>
+
+</body>
+</html>
