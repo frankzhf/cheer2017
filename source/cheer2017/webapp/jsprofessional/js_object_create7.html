@@ -13,11 +13,15 @@ function Person(name,age,job){
 	o.setName=function(_name){
 		name = _name;
 	}
+	o.getName= function(){
+		return name;
+	}
 	return o;
 }
 var zhangsan = new Person("zhangsan",19,"Software Enginner");
 zhangsan.sayName();
 zhangsan.setName("lisi");
+//console.log(zhangsan.getName());
 zhangsan.sayName();
 </script>
 
