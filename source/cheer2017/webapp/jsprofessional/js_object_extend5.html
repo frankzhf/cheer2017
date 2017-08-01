@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//寄生式继承
+function object(o){
+	function F(){}
+	F.prototype = o;
+	return new F();
+}
+
+function createAnother(original){
+	var clone = object(original);
+	clone.sayHi = function(){
+		alert("Hi");
+	}
+	return clone	
+}
+var person ={
+	name : "zhangsan",
+	friends : ["lilei","hameimei"]
+}
+
+var person1 = createAnother(person);
+person1.name = "lisi";
+person1.sayHi();
+</script>
+</body>
+</html>

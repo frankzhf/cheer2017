@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//寄生组合式
+function SuperType(name){
+	this.name = name;
+	this.colors = ['red','blue','green'];
+}
+SuperType.prototype = {
+	sayName :function(){
+		alert(this.name);
+	}
+}
+function SubType(name ,age){
+	SuperType.call(this,name);
+	this.age = age;
+}
+
+
+function object(o){
+	function F(){}
+}
+
+function inheritPrototype(subType, superType){
+	var prototype = object(superType.prototype);
+	prototype.constructor = subType;
+	subType.prototype = prototype;
+}
+
+inheritPrototype(SubType,SuperType);
+
+SubType.prototype.sayAge = function(){
+	alert(this.age);
+}
+
+
+</script>
+</body>
+</html>

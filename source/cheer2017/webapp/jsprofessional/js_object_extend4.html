@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//原型式继承
+function object(o){
+	function F(){}
+	F.prototype = o;
+	return new F();
+}
+
+var person ={
+	name : "zhangsan",
+	friends : ["lilei","hameimei"]
+}
+
+var person1 = object(person);
+person1.name = "lisi";
+person1.friends.push("Jim");
+
+var person2 = object(person);
+person2.name = "wangwu";
+person2.friends.push("Lucy");
+
+console.log("person1 ->" + person1);
+console.log("person2 ->" + person2);
+
+</script>
+</body>
+</html>
