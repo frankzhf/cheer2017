@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		alert("aa");
+		
+		window.frames[0].alertHeader();
+		window.frames['headFrame'].alertHeader();
+		
+		function topAlert(){
+			alert("topAlert tigger");	
+		}
+	</script>
+	<frameset rows="160,*">
+		<frame src="frameset/head.html" name="headFrame">
+	  	<frameset cols="50%,50%">
+			<frame src="frameset/left.html" name="leftFrame">
+			<frame src="frameset/right.html" name="rightFrame">
+		</frameset>
+	</frameset>
+</html>

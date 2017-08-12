@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>navigator</title>
+	</head>
+	<body>
+		<div id="example">
+		</div>
+		<script type="text/javascript">
+			var txt = "<p>Browser CodeName:" + navigator.appCodeName  + "</p>";
+			txt += "<p>Browser Name:" + navigator.appName  + "</p>";
+			txt += "<p>Browser Version:" + navigator.appVersion  + "</p>";
+			txt += "<p>Cookies Enabled:" + navigator.cookieEnabled  + "</p>";
+			txt += "<p>Platform :"+ navigator.flatform  + "</p>";
+			txt += "<p>User-agent Header :"+ navigator.userAgent  + "</p>";
+			txt += "<p>User-agent language :"+ navigator.systemLanguage  + "</p>";
+			document.getElementById("example").innerHTML = txt;
+		</script>
+	</body>
+</html>
