@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>DOM matter</title>
+	</head>
+	<body>
+		<div>
+		</div>
+		<div>
+		</div>
+		<div>
+		</div>
+		
+		
+		<p>Programmer Language:</p>
+		<ul id="languageUl"><li>C</li><li>C++</li><li>C#</li><li>Java</li><li>Lisp</li></ul>
+		<!-- 
+		<ul id="languageUl">
+			<li>C</li>
+			<li>C++</li>
+			<li>C#<ul>2005
+				</ul>
+				<ul>2008
+				</ul>
+				<ul>2010
+				</ul>
+			</li>
+			<li>Java</li>
+			<li>Lisp</li>
+		</ul>
+		-->
+	</body>
+	<script type="text/javascript">
+		
+		var _ul = document.getElementById("languageUl");
+		var newNode = document.createElement("li");
+		var attrNode 
+		var newTextNode = document.createTextNode("Objective-c");
+		newNode.appendChild(newTextNode);
+		_ul.appendChild(newNode);
+		
+		newNode = document.createElement("li");
+		newTextNode = document.createTextNode("Go");
+		newNode.appendChild(newTextNode);
+		_ul.insertBefore(newNode,_ul.childNodes[3]);
+		
+		newNode = document.createElement("li");
+		newTextNode = document.createTextNode("javascript");
+		newNode.appendChild(newTextNode);
+		_ul.replaceChild(newNode,_ul.childNodes[5]);
+		
+		_ul.removeChild(_ul.childNodes[1]);
+	</script>
+	
+</html>

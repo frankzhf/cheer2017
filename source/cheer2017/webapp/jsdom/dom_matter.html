@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>DOM matter</title>
+	</head>
+	<body>
+		<p>Programmer Language:</p>
+		<ul id="languageUl"><li>C</li><li>C++</li><li>C#</li><li>Java</li><li>Lisp</li></ul>
+		<!-- 
+		ul
+			li
+				text
+			li
+				text
+			li
+				text
+		ul
+			li
+			li
+			li
+		 -->
+		<ul id="languageUl2">
+			<li>C</li>
+			<li>C++</li>
+			<li>C#</li>
+			<li>Java</li>
+			<li>Lisp</li>
+		</ul>
+		<!-- 
+			ul
+				text \n\t\t
+				li
+					text
+				text  \n\t\t
+				li
+					text
+				text \n\t\t
+				li
+					text
+				text \n\t
+		-->
+	</body>
+	<script type="text/javascript">
+		var ul = document.getElementById("languageUl");
+		var childNodes = ul.childNodes;
+		console.log(childNodes[0].nodeName  + " - " + childNodes[0].childNodes[0].nodeValue);
+		console.log(childNodes.item(1).nodeName  + " - " + childNodes.item(1).childNodes[0].nodeValue);
+		console.log(childNodes.length);
+	</script>
+	
+</html>

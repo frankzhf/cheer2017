@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>DOM Document Write/Writeln</title>
+	</head>
+	<body>
+		<table border="0" width="80%">
+			<thead>
+				<tr>
+					<th>Row 1 Col 1</th>
+					<th>Row 1 Col 2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Row 2 Col 1</td>
+					<td>Row 2 Col 2</td>
+				</tr>
+				<tr>
+					<td>Row 3 Col 1</td>
+					<td>Row 3 Col 2</td>
+				</tr>
+				<tr>
+					<td>Row 4 Col 1</td>
+					<td>Row 4 Col 2</td>
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			var table = document.getElementsByTagName("table")[0];
+			console.log(table.getAttribute("border"));
+			console.log(table.getAttribute("width"));
+			table.setAttribute("border","1");
+			table.setAttribute("width","50%");
+		</script>
+	</body>
+</html>

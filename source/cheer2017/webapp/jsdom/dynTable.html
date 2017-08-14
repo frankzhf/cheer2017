@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Dyn Table</title>
+		
+	</head>
+	<body>
+		
+		<table id="studentsInfo">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>身高</th>
+					<th>体重</th>
+				</tr>
+			</thead>
+			<tbody id="records">
+				
+			</tbody>
+		</table>
+		<div>
+			<!-- pageInfo -->
+		</div>
+		<script type="text/javascript">
+			var _script = document.createElement("script");
+			_script.type="text/javascript";
+			_script.src = "table.js";
+			var _body = document.body;
+			_body.appendChild(_script);
+			
+			var _link = document.createElement("link");
+			_link.rel = "stylesheet";
+			_link.type = "text/css";
+			_link.href = "test.css"
+			var _head = document.getElementsByTagName("head")[0];
+			_head.appendChild(_link);
+			
+		</script>
+	</body>
+</html>

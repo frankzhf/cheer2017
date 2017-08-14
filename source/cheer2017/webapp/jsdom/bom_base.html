@@ -1,0 +1,39 @@
+<!DocType  >
+<html>
+	<head>
+		<title>Base DOM</title>
+	</head>
+	<body>
+		<p id="testId">Hello DOM</p>
+		<table border="1">
+		</table>
+		<script type="text/javascript">
+		console.log(document.nodeType);
+		/***
+		if(document.nodeType == Node.DOCUMENT_NODE){
+			console.log("document is Document Node");
+		}
+		**/
+		if(document.nodeType == 9){
+			console.log("document is Document Node");
+		}
+		
+		console.log(document.getElementById("testId").nodeType);
+		</script>
+	</body>
+</html>
+<!-- 
+DOM
+		document
+			documentElement
+				html
+					head
+						title
+							text
+					
+					body
+						p
+							text
+				comment
+
+ -->

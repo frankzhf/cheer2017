@@ -1,0 +1,37 @@
+<!DocType  >
+<html>
+	<head>
+		<title>DOM Document</title>
+	</head>
+	<body>
+		<a href="http://www.baidu.com">百度</a>
+		<!-- 当点击上面链后，在新的网页中, domain将是新的url的服务器信息，referer将是当前的服务器信息 -->
+		
+		<p id="p0" name="p_0">abc</p>
+		<p name="p1">bcd</p>
+		
+		<form>
+		</form>
+		
+		<form>
+		</form>
+		
+		<script type="text/javascript">
+		console.log(document.title);
+		console.log(document.documentElement.childNodes[0].childNodes[0].nodeValue);
+		
+		console.log(document.domain);
+		console.log(document.referer);
+		
+		document.forms[1]
+		
+		var pTag = document.getElementsByTagName("p");
+		pTag[0];//访问第一个标签
+		pTag.item(1);//访问第二个标签， HTMLCollection提供的方法
+		var p1 = pTag.namedItem("p1");
+		console.log(p1);
+		</script>
+		
+		
+	</body>
+</html>

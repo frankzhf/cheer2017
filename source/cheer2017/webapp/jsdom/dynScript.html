@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>Dyn Script</title>
+		<!-- 
+		<link rel="stylesheet" type="text/css" href="resources/bootstrap-3.3.6/css/bootstrap.css">
+		 -->
+	</head>
+	<body>
+		<script type="text/javascript">
+			var _script = document.createElement("script");
+			_script.type="text/javascript";
+			_script.src = "test.js";
+			var _body = document.body;
+			_body.appendChild(_script);
+			
+			var _link = document.createElement("link");
+			_link.rel = "stylesheet";
+			_link.type = "text/css";
+			_link.href = "test.css"
+			var _head = document.getElementsByTagName("head")[0];
+			_head.appendChild(_link);
+			
+		</script>
+	</body>
+</html>
