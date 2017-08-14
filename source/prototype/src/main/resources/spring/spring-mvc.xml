@@ -40,30 +40,6 @@
 					<bean class="net.frank.yangtes.commons.mapper.JsonMapper"></bean>
 				</property>
 			</bean>
-			<!-- 使用XML格式输出数据 -->
-			<bean
-				class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-				<constructor-arg>
-					<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
-						<property name="streamDriver">
-							<bean class="com.thoughtworks.xstream.io.xml.StaxDriver" />
-						</property>
-						<property name="annotatedClasses">
-							<list>
-								<value>net.frank.yangtes.commons.persistence.BaseEntity
-								</value>
-								<value>net.frank.yangtes.commons.supcan.treelist.TreeList
-								</value>
-								<value>net.frank.yangtes.commons.supcan.treelist.cols.Col
-								</value>
-								<value>net.frank.yangtes.commons.supcan.treelist.cols.Group
-								</value>
-							</list>
-						</property>
-					</bean>
-				</constructor-arg>
-				<property name="supportedMediaTypes" value="application/xml"></property>
-			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
