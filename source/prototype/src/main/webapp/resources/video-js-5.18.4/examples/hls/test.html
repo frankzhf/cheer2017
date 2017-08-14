@@ -1,0 +1,17 @@
+
+
+<video id=example-video width=600 height=300 class="video-js vjs-default-skin" controls>
+  <source
+     src="http://192.168.1.109:8280/cms/userfiles/1/files/cms/article/2017/02/2.mp4"
+     type="application/x-mpegURL">
+</video>
+<script src="../../video.js"></script>
+<script src="../../hls/videojs-contrib-hls.min.js"></script>
+<script>
+
+var options = {hls: {
+  withCredentials: true
+}};
+var player = videojs('example-video',{flash: options, html5: options});
+player.play();
+</script>
