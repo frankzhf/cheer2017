@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	window.onload = function(){
+		var nameTxt = document.getElementById("_name");
+		nameTxt.addEventListener("focus",function(){
+			console.log("name text onfocus!");
+		});
+		
+		nameTxt.addEventListener("blur",function(){
+			console.log("name text onBlur!");
+		});
+		var loginBtn = document.getElementById("loginBtn");
+
+		loginBtn.addEventListener("click",function(){
+			var _nameValue = document.getElementById("_name").value;
+			var _pwdValue = document.getElementById("_pwd").value;
+			console.log(_nameValue);
+			console.log(_pwdValue);
+			if("admin" == _nameValue 
+				&& "123456" == _pwdValue){
+				console.log("login success!");
+				window.location = "http://www.baidu.com"
+			}else{
+				alert("Invalid name or password");
+			}
+		});
+	};
+</script>
+
+	<form>
+		<input type="text" name="name" id="_name"><br>
+		<input type="text" name="pwd" id="_pwd"><br>
+		<input type="button" value="Login" id="loginBtn">
+	</form>
+</body>
+</html>

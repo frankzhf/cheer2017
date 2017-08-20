@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function login(){
+		//todo
+		var _nameValue = document.getElementById("_name").value;
+		var _pwdValue = document.getElementById("_pwd").value;
+		console.log(_nameValue);
+		console.log(_pwdValue);
+		if("admin" == _nameValue 
+			&& "123456" == _pwdValue){
+			console.log("login success!");
+			window.location = "http://www.baidu.com"
+		}else{
+			alert("Invalid name or password");
+		}
+	}
+
+	function nameFocus(){
+		console.log("name text onfocus!");
+	}
+	function nameBlur(){
+		console.log("name text onblur!");
+	}
+
+
+</script>
+
+	<form>
+		<input type="text" name="name" id="_name" onfocus="nameFocus()" onblur="nameBlur()"><br>
+		<input type="text" name="pwd" id="_pwd"><br>
+		<input type="button" value="Login" onclick="login()">
+	</form>
+</body>
+</html>
