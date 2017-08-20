@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery-1.9.1.js"></script>
+	<style type="text/css">
+		.main {
+			background-color:red;
+		}
+	</style>
+</head>
+<body class="main">
+<script type="text/javascript">
+$(function(){
+	$("#_name").val("admin");
+	$("#loginForm input").each(function(){
+		console.log($(this).attr("id"));
+	});
+	
+	$("#searchForm input").each(function(){
+		console.log($(this).attr("name"));
+	});
+	
+	console.log($(".main").css({"background-color":"green"}));
+	
+	
+});
+</script>
+	<form id="loginForm"><div>
+		<input type="text" name="name" id="_name"><br>
+		<input type="text" name="pwd"><br>
+		<input type="button" value="Login" id="loginBtn"></div>
+	</form>
+	<form id="searchForm">
+		<input type="text" name="name" id="_searchName"><br>
+		<input type="text" name="pwd"><br>
+		<input type="button" value="Login" id="serachBtn">
+	</form>
+</body>
+</html>
