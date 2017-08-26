@@ -14,10 +14,18 @@ import javax.servlet.http.HttpServletResponse;
 public class StudentListServlet extends HttpServlet {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6073988565246098334L;
 	public static List<Student> store = new ArrayList<Student>();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		
+		resp.setCharacterEncoding("utf-8");
+		resp.setContentType("text/html");
 		
 		PrintWriter out = resp.getWriter();
 		out.println("<!DOCTYPE html>");
@@ -27,7 +35,7 @@ public class StudentListServlet extends HttpServlet {
 		out.println("<meta charset=\"utf-8\">");
 		out.println("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">");
 		out.println("<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">");
-		out.println("<title>Bootstrap - Student List</title>");
+		out.println("<title>Servlet -- 学生列表</title>");
 		out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\""+req.getContextPath()+"/resources/bootstrap-3.3.6/css/bootstrap.css\">");
 		out.println("<!--[if lt IE 9]");
 		out.println("<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>	");
@@ -41,55 +49,55 @@ public class StudentListServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=\"container\">");
 		out.println("		<div class=\"row\">");
-		
+		out.println("		<div class=\"col-md-12\">");
 		out.println("		<form action=\""+req.getContextPath()+"/student/save\" method=\"post\" class=\"form-horizontal\">");
 		
 		out.println("			<div class=\"form-group\">");
-		out.println("			<label class=\"control-label\">ID</label>");
+		out.println("			<label class=\"control-label\">标识</label>");
 		out.println("			<input type=\"text\" name=\"id\" class=\"form-control\"");
-		out.println("				placeholder=\"Enter Student's ID\">");
+		out.println("				placeholder=\"输入学生的标识\">");
 		out.println("			</div>");
 		
 		out.println("			<div class=\"form-group\">");
-		out.println("			<label class=\"control-label\">Name</label>");
+		out.println("			<label class=\"control-label\">姓名</label>");
 		out.println("			<input type=\"text\" name=\"name\" class=\"form-control\"");
-		out.println("				placeholder=\"Enter Student's Name\">");
+		out.println("				placeholder=\"输入学生的姓名\">");
 		out.println("			</div>");
 		
 		out.println("			<div class=\"form-group\">");
-		out.println("			<label class=\"control-label\">Age</label>");
+		out.println("			<label class=\"control-label\">年龄</label>");
 		out.println("			<input type=\"text\" name=\"age\" class=\"form-control\"");
-		out.println("				placeholder=\"Enter Student's Age\">");
+		out.println("				placeholder=\"输入学生的年龄\">");
 		out.println("			</div>");
 		
 		out.println("			<div class=\"form-group\">");
-		out.println("			<label class=\"control-label\">Height</label>");
+		out.println("			<label class=\"control-label\">身高</label>");
 		out.println("			<input type=\"text\" name=\"height\" class=\"form-control\"");
-		out.println("				placeholder=\"Enter Student's Height\">");
+		out.println("				placeholder=\"输入学生的身高\">");
 		out.println("			</div>");
 
 		out.println("			<div class=\"form-group\">");
-		out.println("			<label class=\"control-label\">Weight</label>");
+		out.println("			<label class=\"control-label\">体重</label>");
 		out.println("			<input type=\"text\" name=\"weight\" class=\"form-control\"");
-		out.println("				placeholder=\"Enter Student's Weight\">");
+		out.println("				placeholder=\"输入学生的体重\">");
 		out.println("			</div>");
 		out.println("			<div class=\"form-group\">");
 		
 		out.println("			<input type=\"submit\" class=\"btn btn-primary\"");
-		out.println("				value=\"Save\">");
+		out.println("				value=\"保存\">");
 		out.println("			</div>");
 		out.println("		</form>");
-		
+		out.println("		</div>");
 		out.println("		</div>");
 		out.println("		<div class=\"row\">");
 		out.println("			<div class=\"col-md-12\">");		
 		out.println("			<table class=\"table table-striped\">");
 		out.println("					<tr>");
-		out.println("						<th>ID</th>");
-		out.println("						<th>Name</th>");
-		out.println("						<th>Age</th>");
-		out.println("						<th>Height</th>");
-		out.println("						<th>Weight</th>");
+		out.println("						<th>标识</th>");
+		out.println("						<th>姓名</th>");
+		out.println("						<th>年龄</th>");
+		out.println("						<th>身高</th>");
+		out.println("						<th>体重</th>");
 		out.println("					</tr>");
 		for(int i=0;i<store.size();i++){
 			Student item = store.get(i);
