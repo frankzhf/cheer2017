@@ -118,6 +118,8 @@
 	<servlet-mapping>
 		<servlet-name>UserfilesDownloadServlet</servlet-name>
 		<url-pattern>/userfiles/*</url-pattern>
+		<!-- 
+		/userfiles/1/images/photo/2017/08/pb_diff.png -->
 	</servlet-mapping>
 	
 	<servlet>

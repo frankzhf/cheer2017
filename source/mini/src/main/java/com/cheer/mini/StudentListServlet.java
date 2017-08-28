@@ -2,14 +2,20 @@ package com.cheer.mini;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequestAttributeEvent;
+import javax.servlet.ServletRequestAttributeListener;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.cheer.mini.util.DataBaseUtil;
+import com.cheer.mini.util.RowMapper;
 
 public class StudentListServlet extends HttpServlet {
 	
@@ -18,15 +24,22 @@ public class StudentListServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = -6073988565246098334L;
-	public static List<Student> store = new ArrayList<Student>();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
-		resp.setCharacterEncoding("utf-8");
+		List<Student> store = DataBaseUtil.query("select * from sys_student", new RowMapper<Student>(){
+			@Override
+			public Student mapper(ResultSet rs) throws SQLException{
+				Student student = new Student();
+				student.setId(rs.getString(1));
+				student.setName(rs.getString(2));
+				student.setAge(rs.getInt(3));
+				student.setHeigth(rs.getInt(4));
+				student.setWeight(rs.getInt(5));
+				return student;
+			}
+		});
 		resp.setContentType("text/html");
-		
 		PrintWriter out = resp.getWriter();
 		out.println("<!DOCTYPE html>");
 		out.println("<html lang=\"en\">");
@@ -117,54 +130,4 @@ public class StudentListServlet extends HttpServlet {
 		out.println("</html>");
 		out.flush();
 	}
-
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-		{
-			Student student = new Student();
-			student.setId("1");
-			student.setName("zhangsan");
-			student.setAge(21);
-			student.setHeigth(167);
-			student.setWeight(55);
-			store.add(student);
-		}
-		
-		{
-			Student student = new Student();
-			student.setId("2");
-			student.setName("lisi");
-			student.setAge(21);
-			student.setHeigth(167);
-			student.setWeight(55);
-			store.add(student);
-		}
-		
-		{
-			Student student = new Student();
-			student.setId("3");
-			student.setName("wangwu");
-			student.setAge(21);
-			student.setHeigth(167);
-			student.setWeight(55);
-			store.add(student);
-		}
-		
-		{
-			Student student = new Student();
-			student.setId("4");
-			student.setName("zhaoliu");
-			student.setAge(21);
-			student.setHeigth(167);
-			student.setWeight(55);
-			store.add(student);
-		}
-		
-		
-		
-	}
-	
-	
-	
 }
