@@ -39,6 +39,10 @@ public class StudentListServlet extends HttpServlet {
 				return student;
 			}
 		});
+		req.setAttribute("store", store);
+		req.setAttribute("elString", "Hello EL!");
+		req.getRequestDispatcher("/student/list.jsp").forward(req, resp);
+		/**
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		out.println("<!DOCTYPE html>");
@@ -95,7 +99,6 @@ public class StudentListServlet extends HttpServlet {
 		out.println("				placeholder=\"输入学生的体重\">");
 		out.println("			</div>");
 		out.println("			<div class=\"form-group\">");
-		
 		out.println("			<input type=\"submit\" class=\"btn btn-primary\"");
 		out.println("				value=\"保存\">");
 		out.println("			</div>");
@@ -129,5 +132,6 @@ public class StudentListServlet extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 		out.flush();
+		***/
 	}
 }

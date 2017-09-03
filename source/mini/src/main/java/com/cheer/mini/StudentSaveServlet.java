@@ -25,7 +25,6 @@ public class StudentSaveServlet extends HttpServlet {
 	private transient Log log = LogFactory.getLog(getClass());
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
 		//String id = req.getParameter("id");
 		final String name = req.getParameter("name");
 		final String age = req.getParameter("age");

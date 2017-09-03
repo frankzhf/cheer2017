@@ -37,6 +37,7 @@
 		<servlet-name>StudentListServlet</servlet-name>
 		<servlet-class>com.cheer.mini.StudentListServlet</servlet-class>
 	</servlet>
+	
 	<servlet>
 		<servlet-name>StudentSaveServlet</servlet-name>
 		<servlet-class>com.cheer.mini.StudentSaveServlet</servlet-class>
@@ -46,6 +47,7 @@
 		<servlet-name>StudentListServlet</servlet-name>
 		<url-pattern>/student/list</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>StudentSaveServlet</servlet-name>
 		<url-pattern>/student/save</url-pattern>
