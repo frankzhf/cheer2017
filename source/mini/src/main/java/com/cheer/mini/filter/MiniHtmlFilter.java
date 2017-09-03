@@ -28,6 +28,7 @@ public class MiniHtmlFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		log.debug("MiniHtmlFilter.doFilter");
+		request.setCharacterEncoding(encode);
 		response.setCharacterEncoding(encode);
 		chain.doFilter(request, response);
 	}

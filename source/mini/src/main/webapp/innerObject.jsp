@@ -22,7 +22,7 @@
 	out.print("<h1>out</h1>");
 	application.getAttribute("aaa");
 	config.getInitParameter("appStatus");
-	//page.
+	//page.wait()
 %>
 </body>
 </html>

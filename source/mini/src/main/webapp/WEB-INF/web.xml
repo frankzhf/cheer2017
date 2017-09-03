@@ -43,6 +43,17 @@
 		<servlet-class>com.cheer.mini.StudentSaveServlet</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>StudentDeleteServlet</servlet-name>
+		<servlet-class>com.cheer.mini.StudentDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>StudentAjaxListServlet</servlet-name>
+		<servlet-class>com.cheer.mini.ajax.StudentListServlet</servlet-class>
+	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>StudentListServlet</servlet-name>
 		<url-pattern>/student/list</url-pattern>
@@ -52,7 +63,16 @@
 		<servlet-name>StudentSaveServlet</servlet-name>
 		<url-pattern>/student/save</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet-mapping>
+		<servlet-name>StudentDeleteServlet</servlet-name>
+		<url-pattern>/student/delete</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>StudentAjaxListServlet</servlet-name>
+		<url-pattern>/student/ajax/list</url-pattern>
+	</servlet-mapping>
 	
 	<listener>
 		<listener-class>com.cheer.mini.listener.MiniServletContextListener</listener-class>
