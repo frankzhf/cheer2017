@@ -38,7 +38,7 @@
 					if(response.status == 200){
 						console.log(response);
 						$("#studStore").empty();
-						if(response.data.records){
+						if(response.data.srecords){
 							for(var item in response.data.records){
 								var tr = $("<tr></tr>");
 								var td = $("<td></td>");
@@ -68,17 +68,11 @@
 								$("#studStore").append(tr);
 							}
 						}
-						
-						
-						
-						
-						
-						
 					}
 				},
 				error : function(error){
 					
-				} 
+				} s
 			});
 		});
 	</script>
