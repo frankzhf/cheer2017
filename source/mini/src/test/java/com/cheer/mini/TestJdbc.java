@@ -14,7 +14,9 @@ public class TestJdbc {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://rm-uf653h6hcelwvkwq5o.mysql.rds.aliyuncs.com:3306/frank", "frank", "12345678");
+		
 		Statement stmt = connection.createStatement();
+		/**
 		String insertSql = "insert into sys_student(id,name,age,height,weight) values('"+
 				java.util.UUID.randomUUID().toString().replaceAll("-", "")+"',"
 				+ "'张三',22,167,55) ";
@@ -25,8 +27,8 @@ public class TestJdbc {
 				+ "'李四',22,167,55) ";
 		log.info(insertSql);
 		stmt.execute(insertSql);
-		
-		insertSql = "insert into sys_student(id,name,age,height,weight) values('"+
+		**/
+		String insertSql = "insert into sys_student(id,name,age,height,weight) values('"+
 				java.util.UUID.randomUUID().toString().replaceAll("-", "")+"',"
 				+ "'王五',22,167,55) ";
 		log.info(insertSql);

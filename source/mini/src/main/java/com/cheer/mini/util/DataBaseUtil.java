@@ -100,4 +100,54 @@ public class DataBaseUtil {
 		}
 		return null;
 	}
+	
+	public static int getCount(String querySql){
+		Properties configuration = 
+				PropertiesUtil.getProperties("jdbc");
+		try{
+			Class.forName(configuration.getProperty("jdbc.class.driver"));
+		}catch(ClassNotFoundException e){
+			System.err.println(e.getMessage());
+		}
+		String jdbcUrl = configuration.getProperty("jdbc.url");
+		String user = configuration.getProperty("jdbc.user");
+		String password = configuration.getProperty("jdbc.password");
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try{
+			conn = DriverManager.getConnection(
+					jdbcUrl, user, password);
+			StringBuffer sb = new StringBuffer(512);
+			sb.append("SELECT count(1) FROM (").append(querySql).append(") a");
+			ResultSet rs = conn.createStatement().executeQuery(sb.toString());
+			while(rs.next()){
+				int count = rs.getInt(1);
+				return count;
+			}
+			return 0;
+			//return rt;
+		}catch(SQLException e){
+			log.error(e.getMessage());
+		}finally{
+			try{
+				if(ps!=null){
+					ps.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+			}catch(SQLException e){
+				log.error(e.getMessage());
+			}
+		}
+		return -1;
+	}
+	
+	public static <T> List<T> pageQuery(String querySql,int pageNo,int pageSize,RowMapper<T> rowMapper){
+		StringBuffer sb = new StringBuffer(512);
+		int begin = pageSize * (pageNo -1);
+		sb.append(querySql).append(" limit ").append(begin).append(",").append(pageSize);
+		return query(sb.toString(),rowMapper);
+	}
+	
 }

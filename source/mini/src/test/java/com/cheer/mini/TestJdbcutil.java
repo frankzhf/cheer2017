@@ -17,7 +17,40 @@ public class TestJdbcutil {
 	private static transient Log log = LogFactory.getLog(TestJdbcutil.class);
 	
 	public static void main(String[] args) {
-	
+		
+		int count = DataBaseUtil.getCount("select * from sys_student");
+		log.info("Varible[count] -> " + count);
+		
+		List<Student> rt = DataBaseUtil.pageQuery("select * from sys_student" ,1,3, new RowMapper<Student>(){
+			@Override
+			public Student mapper(ResultSet rs) throws SQLException{
+				Student student = new Student();
+				student.setId(rs.getString(1));
+				student.setName(rs.getString(2));
+				student.setAge(rs.getInt(3));
+				student.setHeigth(rs.getInt(4));
+				student.setWeight(rs.getInt(5));
+				return student;
+			}
+		});
+		log.info("Varible [rt] -> " + rt);
+		
+		rt = DataBaseUtil.pageQuery("select * from sys_student" ,2,3, new RowMapper<Student>(){
+			@Override
+			public Student mapper(ResultSet rs) throws SQLException{
+				Student student = new Student();
+				student.setId(rs.getString(1));
+				student.setName(rs.getString(2));
+				student.setAge(rs.getInt(3));
+				student.setHeigth(rs.getInt(4));
+				student.setWeight(rs.getInt(5));
+				return student;
+			}
+		});
+		log.info("Varible [rt] -> " + rt);
+		
+		
+		/***
 		DataBaseUtil.execute(new JdbcOperator() {
 			@Override
 			public int callback(Statement stmt) throws SQLException {
@@ -27,7 +60,7 @@ public class TestJdbcutil {
 			}
 		});
 	
-		/***
+		
 		List<Student> rt = DataBaseUtil.query("select * from sys_student", new RowMapper<Student>(){
 			@Override
 			public Student mapper(ResultSet rs) throws SQLException{
