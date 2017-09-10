@@ -11,5 +11,5 @@ create table tbl_user_log(
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
 	user_id BIGINT,
 	ip VARCHAR(16),
-	last_login DATETIME,
+	last_login DATETIME
 ) ENGINE=innoDB;
