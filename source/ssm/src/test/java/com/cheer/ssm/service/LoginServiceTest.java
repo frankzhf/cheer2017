@@ -9,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.cheer.ssm.dao.UserDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextHierarchy({
@@ -23,13 +22,9 @@ public class LoginServiceTest {
 	@Autowired
 	private LoginService loginService;
 	
-	@Autowired
-	private UserDao userDao;
-	
 	@Test
 	public void testInitTestData(){
 		log.info(loginService.login("admin","123456", "127.0.0.1"));
-		log.info(userDao);
 		log.info("Test finished!");
 	}
 }

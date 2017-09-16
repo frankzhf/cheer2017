@@ -25,20 +25,6 @@
 					</td>
 				</tr>
 			</table>
-			
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<ul class="pagination">
-					<li class="disabled"><a href="#">&laquo;</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">&raquo;</a></li>
-				</ul>
-			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -91,12 +77,16 @@
 							}else{
 								if($("#btnFirst").attr("disabled")=="disabled" ){
 									$("#btnFirst").removeAttr("disabled");
+								}else{
+									$("#btnFirst").unbind("click");
 								}
 								$("#btnFirst").click(function(){
 									page(1,pageInfo.pageSize);
 								});
 								if($("#btnPrev").attr("disabled")=="disabled" ){
 									$("#btnPrev").removeAttr("disabled");
+								}else{
+									$("#btnPrev").unbind("click");
 								}
 								$("#btnPrev").click(function(){
 									page(pageInfo.pageNo-1,pageInfo.pageSize);
@@ -109,12 +99,16 @@
 							}else{
 								if($("#btnNext").attr("disabled")=="disabled" ){
 									$("#btnNext").removeAttr("disabled");
+								}else{
+									$("#btnNext").unbind("click");
 								}
 								$("#btnNext").click(function(){
 									page(pageInfo.pageNo+1,pageInfo.pageSize);
 								});
 								if($("#btnLast").attr("disabled")=="disabled" ){
 									$("#btnLast").removeAttr("disabled");
+								}else{
+									$("#btnLast").unbind("click");
 								}
 								$("#btnLast").click(function(){
 									page(pageInfo.count,pageInfo.pageSize);

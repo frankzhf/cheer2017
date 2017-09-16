@@ -5,8 +5,7 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
-	default-lazy-init="true">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<description>Spring Configuration</description>
 
 	<!-- 数据源配置, 使用 BoneCP 数据库连接池 -->
@@ -58,15 +57,4 @@
 			expression="org.springframework.stereotype.Service"/>
 	</context:component-scan>
 	
-	<!-- 
-	<bean id="userDao" class="com.cheer.ssm.dao.UserDao">
-		<property name="jdbcTemplate" ref="jdbcTemplate" />
-	</bean>
-	
-	<bean id="userLogDao" class="com.cheer.ssm.dao.UserLogDao">
-		<property name="jdbcTemplate" ref="jdbcTemplate" />
-	</bean>
-	
-	<bean id="loginService" class="com.cheer.ssm.service.LoginService"/>
-	 -->
 </beans>

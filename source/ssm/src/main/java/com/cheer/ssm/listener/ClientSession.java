@@ -50,7 +50,7 @@ public class ClientSession implements HttpSessionBindingListener {
 	public void valueUnbound(HttpSessionBindingEvent event) {
 		HttpSession session = event.getSession();
 		if(session!=null){
-			session.invalidate();
+			session = null;
 		}
 	}
 
