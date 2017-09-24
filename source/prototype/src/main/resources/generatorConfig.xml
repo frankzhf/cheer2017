@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+    <!DOCTYPE generatorConfiguration 
+      PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+      "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry
+			location="/Users/zhaofeng/.m2/repository/mysql/mysql-connector-java/5.1.20/mysql-connector-java-5.1.20.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+	    <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/prototype?useUnicode=true&amp;characterEncoding=utf8" 
+			userId="frank" password="A1j86618825">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.cheer.assets.domain" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" /> <property name="trimStrings" 
+			value="true" /> 
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.cheer.assets.mapper"
+			targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.cheer.assets.mapper" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<table tableName="tbl_assets" domainObjectName="AssetsEntity"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="tbl_asts_cate" domainObjectName="AssetsCategroyEntity"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="tbl_asts_finance_record" domainObjectName="AssetsFinanceRecordEntity"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="tbl_asts_transfer_record" domainObjectName="AssetsTransferRecordEntity"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+		<table tableName="tbl_user_asts" domainObjectName="UserAssetsEntity"
+			enableCountByExample="false" enableSelectByExample="true"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+		</table>
+	</context>
+</generatorConfiguration>

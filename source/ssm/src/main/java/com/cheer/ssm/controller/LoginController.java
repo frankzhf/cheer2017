@@ -26,7 +26,6 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public String login(){
 		return "login";

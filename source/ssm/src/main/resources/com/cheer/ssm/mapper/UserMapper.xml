@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cheer.ssm.mapper.UserMapper">
+	<!--
+	<!ELEMENT mapper (cache-ref | cache | resultMap* | parameterMap* | sql* | insert* | update* | delete* | select* )+> 
+	 -->
+	 <resultMap type="com.cheer.ssm.domain.User" id="userResultMap">
+	 	<result column="id" property="id" jdbcType="BIGINT"/>
+	 	<result column="user_name" property="userName" jdbcType="VARCHAR"/>
+	 	<result column="credits" property="credits" jdbcType="INTEGER"/>
+	 	<result column="password" property="password" jdbcType="VARCHAR"/>
+	 	<result column="last_login" property="lastLogin" jdbcType="TIMESTAMP"/>
+	 	<result column="last_ip" property="lastIp" jdbcType="VARCHAR"/>
+	 </resultMap>
+	 
+	 <resultMap type="com.cheer.ssm.helper.UserHelper" id="userHelperResultMap">
+	 	<result column="id" property="id" jdbcType="BIGINT"/>
+	 	<result column="user_name" property="userName" jdbcType="VARCHAR"/>
+	 	<result column="credits" property="credits" jdbcType="INTEGER"/>
+	 	<result column="password" property="password" jdbcType="VARCHAR"/>
+	 	<result column="last_login" property="lastLogin" jdbcType="TIMESTAMP"/>
+	 	<result column="last_ip" property="lastIp" jdbcType="VARCHAR"/>
+	 	<collection property="userLogs" javaType="java.util.ArrayList"
+	 		ofType="com.cheer.ssm.domain.UserLog" foreignColumn="user_id">
+	 		<result column="user_id" property="id" jdbcType="BIGINT"/>
+		 	<result column="ip" property="ip" jdbcType="VARCHAR"/>
+		 	<result column="last_login" property="lastLogin" jdbcType="TIMESTAMP"/>
+	 	</collection>
+	 </resultMap>
+	 
+	 <insert id="insert">
+	 	insert into tbl_user(user_name,credits,password,last_login,last_ip)
+	 		values (#{user.userName},#{user.credits},#{user.password},#{user.lastLogin},#{user.lastIp});
+	 </insert> 
+	 
+	 <update id="update">
+	 	update tbl_user set user_name=#{user.userName},
+	 		credits=#{user.credits},
+	 		password = #{user.password},
+	 		last_login = #{user.lastLogin},
+	 		last_ip = #{user.lastIp}
+	 	where id = #{user.id}
+	 </update>
+	 
+	 <delete id="delete">
+	 	delete from tbl_user where id=#{user.id}
+	 </delete>
+	 
+	 <select id="findForUserName" resultMap="userResultMap">
+	 	select * from tbl_user where user_name=#{userName}
+	 </select>
+	 <select id="get" resultMap="userResultMap">
+	 	select * from tbl_user where id=#{id}
+	 </select>
+	 
+	 <select id="find" resultMap="userResultMap">
+	 	select * from tbl_user
+	 	where 1=1
+	 	<if test="user.userName !=null and user.userName !=''">
+	 		and user_name = #{user.userName}
+	 	</if>
+	 	<if test="user.password !=null and user.password !=''">
+	 		and password = #{user.password}
+	 	</if>	
+	 </select>
+	 
+	 <select id="findHelper" resultMap="userHelperResultMap">
+	 	select  
+			u.id,
+		    u.user_name,
+		    u.credits,
+		    u.password,
+		    u.last_ip,
+		    u.last_login,
+		    ul.id user_id,
+		    ul.ip,
+		    ul.last_login hisory_login
+		from 
+			tbl_user u left join tbl_user_log ul
+		    on u.id = ul.user_id
+		where u.id = #{id}
+	 </select>
+	 
+	 <select id="">
+	 	select * from tbl_user_log where last_login &gt;= '' and last_login &lt;= '' 
+	 </select>
+	 
+</mapper>

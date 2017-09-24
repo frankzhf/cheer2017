@@ -8,11 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.stereotype.Service;
 
 import com.cheer.ssm.domain.UserLog;
 
 
-
+@Service
 public class UserLogDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

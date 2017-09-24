@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cheer.ssm.dao.UserDao;
@@ -13,6 +14,8 @@ import com.cheer.ssm.domain.User;
 import com.cheer.ssm.domain.UserLog;
 import com.cheer.ssm.listener.ClientSession;
 
+
+@Service
 public class LoginService {
 	private transient Log log = LogFactory.getLog(getClass());
 	

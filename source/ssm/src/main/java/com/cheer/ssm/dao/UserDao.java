@@ -11,10 +11,11 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Service;
 
 import com.cheer.ssm.domain.User;
 
-
+@Service
 public class UserDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

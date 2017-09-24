@@ -35,7 +35,7 @@
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-        <property name="basePackage" value="net.frank.yangtes.modules.sys.dao;net.frank.yangtes.modules.gen.dao" />
+        <property name="basePackage" value="net.frank.yangtes.modules.sys.dao;net.frank.yangtes.modules.gen.dao;com.cheer.assets.mapper" />
         <property name="annotationClass"
 			value="net.frank.yangtes.commons.persistence.annotation.MyBatisDao" />
     </bean>

@@ -8,6 +8,12 @@
 	<logger name="org.springframework.webmvc" level="DEBUG" additivity="false">
 		<appender-ref ref="console" />
 	</logger>
+	<logger name="net.frank.yangtes" level="DEBUG" additivity="false">
+		<appender-ref ref="console" />
+	</logger>
+	<logger name="com.cheer.assets" level="DEBUG" additivity="false">
+		<appender-ref ref="console" />
+	</logger>
 	<root level="INFO">
 		<appender-ref ref="console" />
 	</root>
