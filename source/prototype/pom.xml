@@ -417,6 +417,23 @@
 		<database.jdbc.pool.max.active>20</database.jdbc.pool.max.active>
 		<database.jdbc.test.sql><![CDATA[SELECT 1]]></database.jdbc.test.sql>
 	</properties>
+	
+	<profiles>
+		<profile>
+			<id>sit</id>
+			<properties>
+				<app.repository.local.dir>/home/frank/taishan/project/repository</app.repository.local.dir>
+				<app.log.dir>/home/frank/taishan/project/logs</app.log.dir>
+				<app.ehcache.dir>/home/frank/taishan/project/ehcache</app.ehcache.dir>
+				<database.jdbc.driver>com.mysql.jdbc.Driver</database.jdbc.driver>
+				<database.jdbc.url><![CDATA[jdbc:mysql://rm-uf653h6hcelwvkwq5o.mysql.rds.aliyuncs.com:3306/prototype_zf?useUnicode=true&amp;amp;characterEncoding=utf8]]></database.jdbc.url>
+				<database.jdbc.name>zhaofeng</database.jdbc.name>
+				<database.jdbc.password>12345678</database.jdbc.password>
+			</properties>
+		</profile>
+	</profiles>
+	
+	
 	<build>
 		<finalName>prototype</finalName>
 		<resources>
