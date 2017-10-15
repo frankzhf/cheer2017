@@ -66,6 +66,21 @@
     from tbl_asts_cate
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  
+  
+  <select id="preparePreCnt" resultType="com.cheer.assets.model.CategroyCnt">
+  	select l.id categroyId ,l.bns_pre bnsPre ,l.name categroyName, ifnull(r.cnt,0) cnt from (
+	select id,bns_pre,name from tbl_asts_cate where id in(
+	select a.id from 
+	(select id,bns_pre from tbl_asts_cate) a left join 
+	(select parent_ids from tbl_asts_cate )b on
+	 b.parent_ids like concat('%',a.id,'%')
+	 where b.parent_ids is null) ) l
+	 left join (select s.category_id,count(1) cnt from tbl_assets s group by category_id)r
+	 on l.id = r.category_id
+	 where l.id = #{categroyId,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tbl_asts_cate
     where id = #{id,jdbcType=VARCHAR}

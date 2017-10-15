@@ -39,7 +39,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, assets_id, user_id, desc, create_date, create_by
+    id, assets_id, user_id, `desc`, create_date, create_by
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cheer.assets.domain.AssetsTransferRecordEntityExample" >
     select
@@ -67,7 +67,7 @@
   </delete>
   <insert id="insert" parameterType="com.cheer.assets.domain.AssetsTransferRecordEntity" >
     insert into tbl_asts_transfer_record (id, assets_id, user_id, 
-      desc, create_date, create_by
+      `desc`, create_date, create_by
       )
     values (#{id,jdbcType=VARCHAR}, #{assetsId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
       #{desc,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}
@@ -86,7 +86,7 @@
         user_id,
       </if>
       <if test="desc != null" >
-        desc,
+        `desc`,
       </if>
       <if test="createDate != null" >
         create_date,
@@ -126,7 +126,7 @@
         user_id = #{userId,jdbcType=VARCHAR},
       </if>
       <if test="desc != null" >
-        desc = #{desc,jdbcType=VARCHAR},
+        `desc` = #{desc,jdbcType=VARCHAR},
       </if>
       <if test="createDate != null" >
         create_date = #{createDate,jdbcType=TIMESTAMP},
@@ -141,7 +141,7 @@
     update tbl_asts_transfer_record
     set assets_id = #{assetsId,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=VARCHAR},
-      desc = #{desc,jdbcType=VARCHAR},
+      `desc` = #{desc,jdbcType=VARCHAR},
       create_date = #{createDate,jdbcType=TIMESTAMP},
       create_by = #{createBy,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}

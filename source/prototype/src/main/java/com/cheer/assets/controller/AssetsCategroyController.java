@@ -10,6 +10,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,7 +63,7 @@ public class AssetsCategroyController extends BaseController {
 	}
 	
 	@RequestMapping(value = "save")
-	public String save(AssetsCategroyEntity entity,Model model){
+	public String save(@ModelAttribute AssetsCategroyEntity entity,Model model){
 		logger.debug("InputParam [entity] -> " + entity);
 		AssetsCategroyEntity parent = service.get(entity.getParentId());
 		service.save(entity, parent, UserUtils.getUser().getId());
@@ -71,17 +72,17 @@ public class AssetsCategroyController extends BaseController {
 	}
 	
 	@RequestMapping(value = "delete")
-	public String delete(String id,Model model){
+	public String delete(@RequestParam String id,Model model){
 		logger.debug("InputParam [id] -> " + id);
-		
-		
-		
-		
-		model.addAttribute("message", "操作成功");
+		String operatorId = UserUtils.getUser().getId();
+		boolean flag = service.delete(id, operatorId);
+		if(flag){
+			model.addAttribute("message", "操作成功");
+		}else{
+			model.addAttribute("message", "删除失败");
+		}
 		return list(model);
 	}
-	
-	
 	
 	@RequiresPermissions("user")
 	@ResponseBody

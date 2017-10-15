@@ -37,13 +37,13 @@
 			<p class="login-box-msg">登陆</p>
 			<form id="loginForm" action="${ctx}/login" method="post">
 				<div class="form-group has-feedback">
-					<input name="username" id="username" class="form-control"
+					<input name="username" id="username" class="form-control required"
 						placeholder="用户名"> <span
 						class="glyphicon glyphicon-envelope form-control-feedback"></span>
 				</div>
 				<div class="form-group has-feedback">
 					<input type="password" name="password" id="password"
-						class="form-control" placeholder="密码"> <span
+						class="form-control  required" placeholder="密码"> <span
 						class="glyphicon glyphicon-lock form-control-feedback"></span>
 				</div>
 				<c:if test="${isValidateCodeLogin}">
@@ -75,6 +75,9 @@
 	<script src="${ctxStatic}/adminlte/plugins/jQuery/jquery-1.10.2.min.js"></script>
 	<script src="${ctxStatic}/adminlte/bootstrap/js/bootstrap.min.js"></script>
 	<script src="${ctxStatic}/adminlte/plugins/iCheck/icheck.min.js"></script>
+	<script src="${ctxStatic}/jquery-validation/1.15.0/jquery.validate.min.js" type="text/javascript"></script>
+	<script src="${ctxStatic}/jquery-validation/1.15.0/localization/messages_zh.js" type="text/javascript"></script>
+	
 	<script>
     $(function () {
         $('input').iCheck({
@@ -102,7 +105,6 @@
         alert('未登录或登录超时。请重新登录，谢谢！');
         top.location = "${ctx}";
     }
-    });
 </script>
 </body>
 </html>

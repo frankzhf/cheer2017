@@ -30,7 +30,8 @@
 		<li class="active" ><a href="${ctx}/assets/category/form">资产品类新增|编辑</a></li>
 	</ul>
 	<br/>
-	<form:form id="inputForm" modelAttribute="entity" action="${ctx}/assets/category/save" method="post" class="form-horizontal">
+	<form:form id="inputForm" modelAttribute="entity" 
+		action="${ctx}/assets/category/save" method="post" class="form-horizontal">
 		<sys:message content="${message}"/>
 		<form:hidden path="id"/>
 		<form:hidden path="createBy"/>

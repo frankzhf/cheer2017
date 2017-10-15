@@ -2,6 +2,7 @@ package com.cheer.assets.mapper;
 
 import com.cheer.assets.domain.AssetsCategroyEntity;
 import com.cheer.assets.domain.AssetsCategroyEntityExample;
+import com.cheer.assets.model.CategroyCnt;
 
 import net.frank.yangtes.commons.persistence.annotation.MyBatisDao;
 
@@ -24,4 +25,6 @@ public interface AssetsCategroyEntityMapper {
     int updateByPrimaryKeySelective(AssetsCategroyEntity record);
 
     int updateByPrimaryKey(AssetsCategroyEntity record);
+    
+    CategroyCnt preparePreCnt(String categroyId);
 }

@@ -31,22 +31,37 @@
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-	
-	
+
+
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
-        <property name="basePackage" value="net.frank.yangtes.modules.sys.dao;net.frank.yangtes.modules.gen.dao;com.cheer.assets.mapper" />
-        <property name="annotationClass"
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+		<property name="basePackage"
+			value="net.frank.yangtes.modules.sys.dao;net.frank.yangtes.modules.gen.dao;com.cheer.assets.mapper" />
+		<property name="annotationClass"
 			value="net.frank.yangtes.commons.persistence.annotation.MyBatisDao" />
-    </bean>
-    <!-- Define the SqlSessionFactory -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="net.frank.yangtes" />
+	</bean>
+	<!-- Define the SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="net.frank.yangtes" />
 		<property name="typeAliasesSuperType"
 			value="net.frank.yangtes.commons.persistence.BaseEntity" />
-        <property name="configLocation" value="classpath:/mybatis-config.xml" />
-    </bean>
+		<!-- <property name="configLocation" value="classpath:/mybatis-config.xml" 
+			/> -->
+		<property name="plugins">
+			<array>
+				<bean
+					class="net.frank.yangtes.commons.persistence.interceptor.PaginationInterceptor" />
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<value>
+							helperDialect=mysql
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
+	</bean>
 
 	<!-- 定义事务 -->
 	<bean id="transactionManager"
@@ -96,12 +111,5 @@
 		<property name="filters" value="stat" />
 	</bean>
 
-	<!-- 数据源配置, 使用应用服务器的数据库连接池 <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/jeesite" 
-		/> -->
-
-	<!-- 数据源配置, 不使用连接池 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-		<property name="driverClassName" value="${jdbc.driver}" /> <property name="url" 
-		value="${jdbc.url}" /> <property name="username" value="${jdbc.username}"/> 
-		<property name="password" value="${jdbc.password}"/> </bean> -->
 	<import resource="extention/spring-context-*.xml" />
 </beans>

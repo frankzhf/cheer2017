@@ -45,18 +45,46 @@ public class AssetsCategroyService extends BaseService {
 		}
 	}
 	
+	@Transactional
+	public boolean delete(String categroyId,String operatorId){
+		AssetsCategroyEntity entity = get(categroyId);
+		if(entity== null){
+			return false;
+		}
+		if(entity.getParentId().equals("0")){
+			return false;
+		}
+		
+		AssetsCategroyEntityExample  example = new AssetsCategroyEntityExample();
+		example.createCriteria().andDelFlagEqualTo("0").andParentIdLike("%"+ categroyId +"%" );
+		example.or().andIdEqualTo(categroyId);
+		List<AssetsCategroyEntity> list = assetsCategroyMapper.selectByExample(example);
+		if(list!=null && !list.isEmpty()){
+			Date updateDate = new Date();
+			for(int i=0;i<list.size();i++){
+				AssetsCategroyEntity item = list.get(i);
+				item.setUpdateBy(operatorId);
+				item.setUpdateDate(updateDate);
+				item.setDelFlag("1");
+				assetsCategroyMapper.updateByPrimaryKey(item);
+			}
+		}
+		return true;
+	}
+	
 	public AssetsCategroyEntity get(String assetsCategroyId){
 		return assetsCategroyMapper.selectByPrimaryKey(assetsCategroyId);
 	}
 	
 	public List<AssetsCategroyEntity> all(){
 		AssetsCategroyEntityExample  example = new AssetsCategroyEntityExample();
+		example.createCriteria().andDelFlagEqualTo("0");
 		return assetsCategroyMapper.selectByExample(example);
 	}
 	
 	public AssetsCategroyEntity getDefaultParent(){
 		AssetsCategroyEntityExample  example = new AssetsCategroyEntityExample();
-		example.createCriteria().andParentIdEqualTo("0");
+		example.createCriteria().andParentIdEqualTo("0").andDelFlagEqualTo("0");
 		List<AssetsCategroyEntity> rt = assetsCategroyMapper.selectByExample(example);
 		if(rt!=null && !rt.isEmpty()){
 			return rt.get(0);
@@ -64,5 +92,4 @@ public class AssetsCategroyService extends BaseService {
 			return null;
 		}
 	}
-	
 }

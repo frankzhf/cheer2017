@@ -49,7 +49,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, bns_id, office_id, category_id, name, desc, status, sell_price, sell_date, media, 
+    id, bns_id, office_id, category_id, name, `desc`, status, sell_price, sell_date, media, 
     duty_by, create_date, create_by, update_date, update_by, del_flag
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cheer.assets.domain.AssetsEntityExample" >
@@ -78,7 +78,7 @@
   </delete>
   <insert id="insert" parameterType="com.cheer.assets.domain.AssetsEntity" >
     insert into tbl_assets (id, bns_id, office_id, 
-      category_id, name, desc, 
+      category_id, name, `desc`, 
       status, sell_price, sell_date, 
       media, duty_by, create_date, 
       create_by, update_date, update_by, 
@@ -109,7 +109,7 @@
         name,
       </if>
       <if test="desc != null" >
-        desc,
+        `desc`,
       </if>
       <if test="status != null" >
         status,
@@ -209,7 +209,7 @@
         name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="desc != null" >
-        desc = #{desc,jdbcType=VARCHAR},
+        `desc` = #{desc,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=CHAR},
@@ -250,7 +250,7 @@
       office_id = #{officeId,jdbcType=VARCHAR},
       category_id = #{categoryId,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
-      desc = #{desc,jdbcType=VARCHAR},
+      `desc` = #{desc,jdbcType=VARCHAR},
       status = #{status,jdbcType=CHAR},
       sell_price = #{sellPrice,jdbcType=DECIMAL},
       sell_date = #{sellDate,jdbcType=TIMESTAMP},
