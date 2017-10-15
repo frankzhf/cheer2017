@@ -241,3 +241,81 @@ CREATE INDEX sys_user_login_name ON sys_user (login_name ASC);
 CREATE INDEX sys_user_company_id ON sys_user (company_id ASC);
 CREATE INDEX sys_user_update_date ON sys_user (update_date ASC);
 CREATE INDEX sys_user_del_flag ON sys_user (del_flag ASC);
+
+
+DROP TABLE IF EXISTS tbl_assets;
+DROP TABLE IF EXISTS tbl_asts_cate;
+DROP TABLE IF EXISTS tbl_asts_finance_record;
+DROP TABLE IF EXISTS tbl_asts_transfer_record;
+DROP TABLE IF EXISTS tbl_user_asts;
+
+CREATE TABLE `tbl_assets` (
+  `id` varchar(64) NOT NULL,
+  `bns_id` varchar(32) NOT NULL,
+  `office_id` varchar(64) NOT NULL,
+  `category_id` varchar(64) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `desc` varchar(256) DEFAULT NULL,
+  `status` char(1) DEFAULT NULL COMMENT 'N-正常，D-报废，P- 订购中',
+  `sell_price` decimal(10,2) DEFAULT NULL,
+  `sell_date` datetime NOT NULL,
+  `media` varchar(256) DEFAULT NULL,
+  `duty_by` varchar(64) DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `create_by` varchar(64) NOT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `update_by` varchar(64) DEFAULT NULL,
+  `del_flag` char(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `tbl_asts_cate` (
+  `id` varchar(64) NOT NULL,
+  `parent_id` varchar(64) NOT NULL,
+  `parent_ids` varchar(2000) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `bns_pre` varchar(4) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `create_by` varchar(64) NOT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `update_by` varchar(64) DEFAULT NULL,
+  `del_flag` char(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `tbl_asts_finance_record` (
+  `id` varchar(64) NOT NULL,
+  `assets_id` varchar(64) NOT NULL,
+  `desc` varchar(256) NOT NULL,
+  `type` char(1) DEFAULT NULL COMMENT 'I - 进帐, O - 出帐',
+  `before_val` decimal(10,2) NOT NULL,
+  `turnover` decimal(10,2) NOT NULL,
+  `after_val` decimal(10,2) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `create_by` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `tbl_asts_transfer_record` (
+  `id` varchar(64) NOT NULL,
+  `assets_id` varchar(64) NOT NULL,
+  `user_id` varchar(64) NOT NULL,
+  `desc` varchar(256) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `create_by` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `tbl_user_asts` (
+  `id` varchar(64) NOT NULL,
+  `user_id` varchar(64) NOT NULL,
+  `assets_id` varchar(64) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `create_date` datetime NOT NULL,
+  `create_by` varchar(64) NOT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `update_by` varchar(64) DEFAULT NULL,
+  `del_flag` char(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
