@@ -6,7 +6,6 @@ import com.cheer.assets.domain.AssetsEntity;
 import com.cheer.assets.pagination.NoneConditionPagingInput;
 import com.cheer.assets.pagination.SimplePageInfo;
 
-import net.frank.yangtes.commons.config.Global;
 
 public class AssetsForm extends NoneConditionPagingInput{
 	

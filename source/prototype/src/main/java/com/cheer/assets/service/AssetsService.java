@@ -21,12 +21,15 @@ import com.cheer.assets.mapper.AssetsEntityMapper;
 import com.cheer.assets.mapper.AssetsFinanceRecordEntityMapper;
 import com.cheer.assets.mapper.AssetsTransferRecordEntityMapper;
 import com.cheer.assets.mapper.UserAssetsEntityMapper;
+import com.cheer.assets.model.AssetsDetails;
 import com.cheer.assets.model.AssetsForm;
+import com.cheer.assets.model.AssetsTransferExt;
 import com.cheer.assets.model.CategroyCnt;
 import com.cheer.assets.pagination.PaginationCallback;
 import com.cheer.assets.pagination.PaginationUtil;
 import com.cheer.assets.pagination.PagingOutput;
 
+import net.frank.commons.util.ObjectUtil;
 import net.frank.yangtes.commons.service.BaseService;
 import net.frank.yangtes.modules.sys.dao.UserDao;
 import net.frank.yangtes.modules.sys.entity.User;
@@ -185,5 +188,20 @@ public class AssetsService extends BaseService {
 				userAssetMapper.insert(userAssets);
 			}
 		}
+	}
+	
+	public AssetsDetails fillAssetsDetails(String assetsId){
+		AssetsEntity entity = assetsMapper.selectByPrimaryKey(assetsId);
+		AssetsDetails assetsDetails = new AssetsDetails();
+		ObjectUtil.preparePreperties(assetsDetails, entity);
+		AssetsFinanceRecordEntityExample example = new AssetsFinanceRecordEntityExample();
+		example.createCriteria().andAssetsIdEqualTo(assetsId);
+		example.setOrderByClause("create_date asc");
+		List<AssetsFinanceRecordEntity> financeList = financeMapper.selectByExample(example);
+		assetsDetails.setFinanceRecordList(financeList);
+		List<AssetsTransferExt> transferExtList = transferMapper.findForAssetsId(assetsId);
+		assetsDetails.setTransferRecordList(transferExtList);
+		logger.debug("Return -> " + assetsDetails);
+		return assetsDetails;
 	}
 }

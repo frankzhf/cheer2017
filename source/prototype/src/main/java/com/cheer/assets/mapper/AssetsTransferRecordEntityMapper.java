@@ -2,6 +2,7 @@ package com.cheer.assets.mapper;
 
 import com.cheer.assets.domain.AssetsTransferRecordEntity;
 import com.cheer.assets.domain.AssetsTransferRecordEntityExample;
+import com.cheer.assets.model.AssetsTransferExt;
 
 import net.frank.yangtes.commons.persistence.annotation.MyBatisDao;
 
@@ -22,4 +23,6 @@ public interface AssetsTransferRecordEntityMapper {
     int updateByPrimaryKeySelective(AssetsTransferRecordEntity record);
 
     int updateByPrimaryKey(AssetsTransferRecordEntity record);
+    
+    List<AssetsTransferExt> findForAssetsId(String assetsId);
 }

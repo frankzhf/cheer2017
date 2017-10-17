@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cheer.assets.domain.AssetsEntity;
+import com.cheer.assets.model.AssetsDetails;
 import com.cheer.assets.model.AssetsForm;
 import com.cheer.assets.pagination.PagingOutput;
 import com.cheer.assets.service.AssetsService;
@@ -58,10 +59,11 @@ public class AssetsController extends BaseController {
 	}
 	
 	@RequestMapping(value = "details")
-	public String details(@ModelAttribute AssetsForm form,Model model){
-		logger.debug("Input Param [form] -> " + form );
-		
-		return list(form,model);
+	public String details(@RequestParam String assetsId,Model model){
+		logger.debug("Input Param [assetsId] -> " + assetsId );
+		AssetsDetails details = assetsService.fillAssetsDetails(assetsId);
+		model.addAttribute("details",details);
+		return "modules/assets/dialog/details";
 	}
 	
 	@RequestMapping(value="status/normal",method=RequestMethod.POST)

@@ -61,6 +61,21 @@
     from tbl_asts_transfer_record
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  
+  <select id="findForAssetsId" resultType="com.cheer.assets.model.AssetsTransferExt">
+  	select a.id,
+	a.assets_id assetsId,
+    a.user_id userId,
+    b.name userName,
+    a.desc,
+    a.create_date createDate,
+    a.create_by createBy
+    from 
+	tbl_asts_transfer_record a left join 
+    sys_user b on a.user_id = b.id
+    where a.assets_id = #{assetsId,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from tbl_asts_transfer_record
     where id = #{id,jdbcType=VARCHAR}

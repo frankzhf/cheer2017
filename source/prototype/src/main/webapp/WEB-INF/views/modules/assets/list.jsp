@@ -74,8 +74,8 @@
 							});
 						} else {
 							top.alert("折旧值不能为空或0!");
+							return false;
 						}
-						return false;
 					},
 					cancelValue : '取消',
 					cancel : function() {
@@ -167,6 +167,22 @@
 					}
 				});
 			});
+			
+			
+			$(".btnDetails").click(function() {
+				var assetsId = $(this).attr("data");
+				console.log(assetsId);
+				var url = '${ctx}/assets/details?assetsId=' + assetsId;
+				var d = top.dialog({
+					title : '资产详情',
+					url : url,
+					height : 480,
+					width : 700,
+					cancelValue : '取消',
+					cancel : function() {
+					}
+				}).showModal();
+			});
 		});
 	</script>
 	<ul class="nav nav-tabs">
@@ -210,10 +226,10 @@
 									<a href="#" data="${assets.id}" class="btnDepreciation">折旧...</a>
 									<c:if test="${empty assets.dutyBy}">
 									&nbsp;<a href="#" data="${assets.id}" class="btnBorrow">借用...</a>
-									</c:if>
-									&nbsp;<a href="#" data="${assets.id}" class="btnStatusDis">报废</a>
+									</c:if>                
 								</c:if>
-								&nbsp;<a href="${ctx}/assets/category/details">详情</a></td>
+								&nbsp;<a href="#" data="${assets.id}" 
+									class="btnDetails">详情</a></td>
 						</tr>
 					</c:forEach>
 				</c:if>
