@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="sys" tagdir="/WEB-INF/tags/sys"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="shiro" uri="/WEB-INF/tlds/shiros.tld" %>
 <%@ taglib prefix="fns" uri="/WEB-INF/tlds/fns.tld" %>
