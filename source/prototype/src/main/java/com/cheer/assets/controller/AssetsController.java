@@ -130,4 +130,16 @@ public class AssetsController extends BaseController {
 		model.addAttribute("form", form);	
 		return "modules/assets/mine";
 	}
+	
+	
+	
+	@RequestMapping(value="return",method=RequestMethod.POST)
+	public @ResponseBody AsyncResponseData.ResultData _return(
+			@RequestParam String assetsId){
+		logger.debug("Input Param [assetsId] -> " + assetsId );
+		AsyncResponseData.ResultData data = AsyncResponseData.get200Response();
+		String operator = UserUtils.getUser().getId();
+		assetsService.assetReturn(assetsId,operator);
+		return data;
+	}
 }

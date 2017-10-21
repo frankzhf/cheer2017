@@ -16,6 +16,7 @@ import com.cheer.assets.domain.AssetsFinanceRecordEntity;
 import com.cheer.assets.domain.AssetsFinanceRecordEntityExample;
 import com.cheer.assets.domain.AssetsTransferRecordEntity;
 import com.cheer.assets.domain.UserAssetsEntity;
+import com.cheer.assets.domain.UserAssetsEntityExample;
 import com.cheer.assets.mapper.AssetsCategroyEntityMapper;
 import com.cheer.assets.mapper.AssetsEntityMapper;
 import com.cheer.assets.mapper.AssetsFinanceRecordEntityMapper;
@@ -215,5 +216,28 @@ public class AssetsService extends BaseService {
 				return assetsMapper.selectByExample(example);
 			}
 		});
+	}
+	
+	
+	@Transactional
+	public void assetReturn(String assetsId, String operator) {
+		Date current = new Date();
+		AssetsEntity entity = assetsMapper.selectByPrimaryKey(assetsId);
+		entity.setDutyBy(null);
+		entity.setUpdateBy(operator);
+		entity.setUpdateDate(current);
+		assetsMapper.updateByPrimaryKey(entity);
+		UserAssetsEntityExample example = new UserAssetsEntityExample();
+		example.createCriteria().andDelFlagEqualTo("0")
+			.andAssetsIdEqualTo(assetsId);
+		example.setOrderByClause("create_date asc");
+		List<UserAssetsEntity> userAssetsList = userAssetMapper.selectByExample(example);
+		if(userAssetsList!=null && !userAssetsList.isEmpty()){
+			UserAssetsEntity item = userAssetsList.get(0);
+			item.setEndDate(current);
+			item.setUpdateDate(current);
+			item.setUpdateBy(operator);
+			userAssetMapper.updateByPrimaryKey(item);
+		}
 	}
 }

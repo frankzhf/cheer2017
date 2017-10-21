@@ -13,10 +13,6 @@
 
 <layout:default title="资产列表">
 	<script type="text/javascript">
-		function createAssets() {
-			$("#searchForm").attr("action", "${ctx}/assets/mine");
-			$("#searchForm").submit();
-		}
 		$(function() {
 			$(".btnDetails").click(function() {
 				var assetsId = $(this).attr("data");
@@ -32,9 +28,31 @@
 					}
 				}).showModal();
 			});
+			$(".btnReturn").click(function() {
+				var assetsId = $(this).attr("data");
+				console.log(assetsId);
+				var requestBody = {
+					"assetsId" : assetsId
+				};
+				$.ajax({
+					type : "post",
+					url : "${ctx}/assets/return",
+					contextType : "json",
+					data : requestBody,
+					dataType : "json",
+					success : function(response) {
+						console.log(assetsId);
+						$("#searchForm").submit();
+					},
+					error : function(e) {
+						console.log(e)
+					}
+				});
+				
+			});
 		});
 	</script>
-	<form:form id="searchForm" modelAttribute="form" action="${ctx}/mine"
+	<form:form id="searchForm" modelAttribute="form" action="${ctx}/assets/mine"
 		method="post" class="row form-horizontal well" role="form">
 		<input id="pageNo" name="pageInfo.current" type="hidden"
 			value="${form.pageInfo.current}" />
@@ -80,7 +98,7 @@
 			</tbody>
 		</table>
 		<div class="box-tools">
-			<ui:newPagination value="${form.pageInfo}" dataUrl="${ctx}/mine" />
+			<ui:newPagination value="${form.pageInfo}" dataUrl="${ctx}/assets/mine" />
 		</div>
 	</form:form>
 </layout:default>
