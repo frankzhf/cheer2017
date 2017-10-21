@@ -74,6 +74,7 @@
 	tbl_asts_transfer_record a left join 
     sys_user b on a.user_id = b.id
     where a.assets_id = #{assetsId,jdbcType=VARCHAR}
+    order by a.create_date desc
   </select>
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >

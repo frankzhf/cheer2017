@@ -60,7 +60,6 @@
 					<th>财务标记</th>
 					<th>发生数额</th>
 					<th>余额</th>
-					<th>发生日期</th>
 				</tr>
 				<c:if test="${!empty details.financeRecordList}">
 					<c:forEach items="${details.financeRecordList}" var="item" >

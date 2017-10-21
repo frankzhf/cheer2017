@@ -204,4 +204,16 @@ public class AssetsService extends BaseService {
 		logger.debug("Return -> " + assetsDetails);
 		return assetsDetails;
 	}
+
+	public PagingOutput<AssetsEntity> mine(AssetsForm form, final String operator) {
+		return PaginationUtil.processPaging(form, new PaginationCallback<AssetsEntity>() {
+			@Override
+			public List<AssetsEntity> doProcess() {
+				AssetsEntityExample example = new AssetsEntityExample();
+				example.createCriteria().andDelFlagEqualTo("0")
+					.andStatusEqualTo("N").andDutyByEqualTo(operator);
+				return assetsMapper.selectByExample(example);
+			}
+		});
+	}
 }

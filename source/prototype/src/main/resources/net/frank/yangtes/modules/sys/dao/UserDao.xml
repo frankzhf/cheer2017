@@ -62,7 +62,7 @@
     	a.id,
     	a.company_id AS "company.id",
     	a.office_id AS "office.id",
-    	a.login_name,
+    	a.login_name AS loginName,
     	a.password,
     	a.no,
 		a.name,

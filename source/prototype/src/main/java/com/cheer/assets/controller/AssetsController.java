@@ -119,7 +119,15 @@ public class AssetsController extends BaseController {
 		return data;
 	}
 	@RequestMapping(value = "mine")
-	public String mine(){
+	public String mine(@ModelAttribute AssetsForm form,Model model){
+		if(form == null){
+			form = new AssetsForm();
+		}
+		String operator = UserUtils.getUser().getId();
+		PagingOutput<AssetsEntity> output = assetsService.mine(form,operator);
+		form.setPageInfo(output.getPageInfo());
+		form.setList(output.getList());
+		model.addAttribute("form", form);	
 		return "modules/assets/mine";
 	}
 }
