@@ -35,7 +35,7 @@ public class AssetsDetails extends AssetsEntity{
 	public String getLastBorrower(){
 		if(getTransferRecordList()!=null 
 				&& !getTransferRecordList().isEmpty()){
-			return getTransferRecordList().get(getTransferRecordList().size()-1).getUserName();
+			return getTransferRecordList().get(0).getUserName();
 		}
 		return "&nbsp;";
 	}
